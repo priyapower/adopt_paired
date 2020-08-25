@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# 
+#
 # @image_1 = "https://www.101dogbreeds.com/wp-content/uploads/2019/01/Chihuahua-Mixes.jpg"
 # @image_2 = "https://www.loveyourdog.com/wp-content/uploads/2019/12/Catahoula-Pitbull-Mix-900x500.jpg"
 # @image_3 = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47475338/2/?bust=1586831049&width=720"
@@ -21,3 +21,17 @@
 # Pet.create(image: "#{@image_4}", name: "Pierce Brosnan", approximate_age: "7", sex: "Male", description: "This ragdoll mix is a fluffy and friendly addition to your household")
 
 # Rails.application.load_seed
+
+Pet.destroy_all
+Shelter.destroy_all
+
+@shelter_1 = Shelter.create!(name: "The Humane Society - Denver",
+  address: "1 Place St",
+  city: "Denver",
+  state: "CO",
+  zip: "11111")
+@shelter_2 = Shelter.create!(name: "Denver Animal Shelter",
+  address: "7 There Blvd",
+  city: "Denver",
+  state: "CO",
+  zip: "22222")
