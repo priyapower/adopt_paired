@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # Rails.application.load_seed
 
+
+# Pet.destroy_all
+# Shelter.destroy_all
+
 # Shelter.create(name: "The Humane Society - Denver",
 #   address: "1 Place St",
 #   city: "Denver",
