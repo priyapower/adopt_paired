@@ -342,6 +342,8 @@
         "lines": [
           1,
           1,
+          null,
+          1,
           1,
           1,
           1,
@@ -1293,6 +1295,38 @@
           null
         ]
       },
+      "/Users/priyapower/Turing/2module/projects/adopt_solo/spec/features/welcome/index_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/priyapower/Turing/2module/projects/adopt_solo/spec/models/pet_spec.rb": {
         "lines": [
           1,
@@ -1367,7 +1401,7 @@
         "lines": [
           1,
           1,
-          18,
+          19,
           null,
           null,
           null,
@@ -1439,7 +1473,7 @@
         "lines": [
           1,
           1,
-          19,
+          20,
           null,
           null,
           1,
@@ -1477,8 +1511,16 @@
           null,
           null
         ]
+      },
+      "/Users/priyapower/Turing/2module/projects/adopt_solo/app/controllers/welcome_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1598281775
+    "timestamp": 1598361314
   }
 }
