@@ -3,7 +3,6 @@
 <%= link_to "All Pets", "/pets", method: :get %>
 <%= link_to "All Shelters", "/shelters", method: :get %>
 <%= form_tag("/shelters/#{@shelter_id}/pets", method: :post) do %>
-  binding.pry
   <p>Enter a new pet:</p>
   <%= label_tag "Image Url: " %>
   <%= text_field_tag :image %>
