@@ -28,7 +28,7 @@
 
 # Ignore test-related files
 /coverage
-/coverage/
+/coverage/*
 
-# Igonre Simplecov generated files
+# Ignore Simplecov generated files
 /coverage/*
