@@ -13,18 +13,18 @@ RSpec.describe "Review new page", type: :feature do
         city: "Denver",
         state: "CO",
         zip: "22222")
-    end 
-    it "can see the" do
-     visit "/shelters/#{@shelter_1.id}"
-
-     expect(page).to have_link("Add Review")
-
-     click_link('Add Review')
-
-     expect(current_path).to eq("/reviews/new")
-
-
     end
+    # it "can see the link to add new review" do
+    #  visit "/shelters/#{@shelter_1.id}"
+    #
+    #  expect(page).to have_link("Add Review")
+    #
+    #  click_link('Add Review')
+    #
+    #  expect(current_path).to eq("/reviews/new")
+    #
+    #
+    # end
   end
 end
 

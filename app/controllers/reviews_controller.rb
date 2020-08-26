@@ -1,11 +1,16 @@
 class ReviewsController < ApplicationController
 
-  def new
-
+  def index
+    @shelter = Shelter.find(params[:shelter_id])
   end
-
-  def create
-    binding.pry
-  end
+  # def new
+  #   binding.pry
+  #   @shelter = Shelter.find(params[:shelter_id])
+  #
+  #
+  # end
+  #
+  # def create
+  # end
 
 end

@@ -14,6 +14,7 @@ class PetsController < ApplicationController
   end
 
   def new
+    # binding.pry
     @shelter = Shelter.find(params[:shelter_id])
     @shelter_id = params[:shelter_id]
   end
