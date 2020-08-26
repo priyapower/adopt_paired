@@ -16,5 +16,5 @@
 <h4><%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit" %></h4>
 <h4><%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete %></h4></b>
 </b>
-<h4><%= link_to "Add Review", "/reviews/new" %></h4>
+<h4><%= link_to "Add Review", "/shelters/#{@shelter.id}/reviews/new" %></h4>
 <%= link_to "All Pets at Shelter", "/shelters/#{@shelter.id}/pets", method: :get %>

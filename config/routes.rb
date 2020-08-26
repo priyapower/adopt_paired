@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   delete '/shelters/:shelter_id/:id', to: 'pets#destroy_from_shelter'
 
   get '/shelters/:shelter_id/reviews', to: 'reviews#index'
-  # get '/shelters/:shelter_id/reviews/new', to: 'reviews#new'
+  get '/shelters/:shelter_id/reviews/new', to: 'reviews#new'
+  post '/shelters/:shelter_id', to: 'reviews#create'
+
 end

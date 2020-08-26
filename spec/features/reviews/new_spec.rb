@@ -14,17 +14,30 @@ RSpec.describe "Review new page", type: :feature do
         state: "CO",
         zip: "22222")
     end
-    # it "can see the link to add new review" do
-    #  visit "/shelters/#{@shelter_1.id}"
-    #
-    #  expect(page).to have_link("Add Review")
-    #
-    #  click_link('Add Review')
-    #
-    #  expect(current_path).to eq("/reviews/new")
-    #
-    #
-    # end
+    it "can see the link to add new review" do
+     visit "/shelters/#{@shelter_1.id}"
+
+     expect(page).to have_link("Add Review")
+
+     click_link('Add Review')
+     expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
+     expect(page).to have_content("#{@shelter_1.name}")
+     fill_in :title, with: "Worst Shelter I've been to"
+     fill_in :rating, with: 1
+     fill_in :content, with: "Worst staff, poor animals they looked hungry"
+     fill_in :image, with: "https://alpha.aeon.co/images/0bd4ba4f-8a60-4001-82fd-e1c47e8faf06/header_ESSAY-PA-21805359.jpg"
+
+     click_button "Add Review"
+     save_and_open_page
+     new_review = Review.last
+
+     expect(current_path).to eq("/shelters/#{@shelter_1.id}")
+     expect(page).to have_content(new_review.title)
+     expect(page).to have_content(new_review.rating)
+     expect(page).to have_content(new_review.content)
+     expect(page).to have_css("img[src*='#{new_review.image}']")
+
+    end
   end
 end
 
