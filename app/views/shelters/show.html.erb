@@ -1,11 +1,18 @@
 <h1>Adopt Don't Shop</h1></b>
-<h2><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}", method: :get %></h2></b>
+<h2><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}", method: :get %></h2>
 <%= link_to "All Pets", "/pets", method: :get %>
 <%= link_to "All Shelters", "/shelters", method: :get %>
 <p>Address: <%= @shelter.address %></p>
 <p>City: <%= @shelter.city %></p>
 <p>State: <%= @shelter.state %></p>
 <p>Zip: <%= @shelter.zip %></p>
+<h3>Reviews for <%= @shelter.name %></h3>
+<% @shelter.reviews.each do |review| %>
+ <ul> <%= review.title %></ul>
+ <ul> <%= review.rating %></ul>
+ <ul> <%= review.content %></ul>
+ <ul> <%= review.image %></ul>
+<% end %>
 <h4><%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit" %></h4>
 <h4><%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete %></h4></b>
 </b>

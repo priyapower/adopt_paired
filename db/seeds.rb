@@ -25,13 +25,11 @@
 Pet.destroy_all
 Shelter.destroy_all
 
-@shelter_1 = Shelter.create!(name: "The Humane Society - Denver",
-  address: "1 Place St",
-  city: "Denver",
-  state: "CO",
-  zip: "11111")
-@shelter_2 = Shelter.create!(name: "Denver Animal Shelter",
-  address: "7 There Blvd",
-  city: "Denver",
-  state: "CO",
-  zip: "22222")
+# @shelter_1 = Shelter.create!(name: "Pawz",
+#   address: "1 Place St",
+#   city: "Denver",
+#   state: "CO",
+#   zip: "11111")
+#
+#
+#   review_1 = @shelter_1.reviews.create!(title: 'Amazing', rating: 5, content: 'Found my best friend', image: 'https://live.staticflickr.com/7396/8728178651_912c2fa554_b.jpg')
