@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/spec_helper.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/spec_helper.rb": {
         "lines": [
           null,
           null,
@@ -101,7 +101,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/environment.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -110,7 +110,7 @@
           1
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/application.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/application.rb": {
         "lines": [
           1,
           null,
@@ -147,7 +147,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/boot.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -155,7 +155,7 @@
           1
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/environments/test.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -205,7 +205,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/initializers/application_controller_renderer.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -217,7 +217,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/initializers/assets.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -235,7 +235,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/initializers/backtrace_silencers.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -246,7 +246,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/initializers/content_security_policy.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -275,7 +275,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/initializers/cookies_serializer.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -284,7 +284,7 @@
           1
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/initializers/filter_parameter_logging.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -292,7 +292,7 @@
           1
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/initializers/inflections.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -312,7 +312,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/initializers/mime_types.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -320,7 +320,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/initializers/wrap_parameters.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -338,7 +338,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/config/routes.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/config/routes.rb": {
         "lines": [
           1,
           1,
@@ -361,16 +361,18 @@
           1,
           1,
           1,
+          null,
+          1,
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/app/helpers/application_helper.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/pets/edit_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/pets/edit_spec.rb": {
         "lines": [
           1,
           null,
@@ -495,7 +497,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/pets/index_shelter_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/pets/index_shelter_spec.rb": {
         "lines": [
           1,
           null,
@@ -632,7 +634,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/pets/index_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/pets/index_spec.rb": {
         "lines": [
           1,
           null,
@@ -764,7 +766,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/pets/new_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/pets/new_spec.rb": {
         "lines": [
           1,
           null,
@@ -866,7 +868,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/pets/show_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/pets/show_spec.rb": {
         "lines": [
           1,
           null,
@@ -967,7 +969,81 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/shelters/delete_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/reviews/index_shelters_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/reviews/new_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/shelters/delete_spec.rb": {
         "lines": [
           1,
           null,
@@ -1022,204 +1098,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/shelters/edit_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          5,
-          null,
-          null,
-          null,
-          null,
-          5,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/shelters/index_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          5,
-          null,
-          null,
-          null,
-          null,
-          5,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/shelters/new_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/shelters/show_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/shelters/edit_spec.rb": {
         "lines": [
           1,
           null,
@@ -1243,32 +1122,10 @@
           1,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
           null,
           1,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
           null,
           1,
           1,
@@ -1283,6 +1140,31 @@
           1,
           1,
           null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
           null,
           1,
           1,
@@ -1291,25 +1173,205 @@
           1,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/features/welcome/index_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/shelters/index_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          5,
+          null,
+          null,
+          null,
+          null,
+          5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/shelters/new_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/shelters/show_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          5,
+          null,
+          null,
+          null,
+          null,
+          5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/features/welcome/index_spec.rb": {
         "lines": [
           1,
           null,
@@ -1340,7 +1402,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/models/pet_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/models/pet_spec.rb": {
         "lines": [
           1,
           null,
@@ -1358,7 +1420,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/app/models/pet.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/models/pet.rb": {
         "lines": [
           1,
           1,
@@ -1371,60 +1433,14 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/app/models/application_record.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/models/review_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          2,
-          2,
-          2,
-          2,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/app/models/review.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/spec/models/shelter_spec.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/models/review_spec.rb": {
         "lines": [
           1,
           null,
@@ -1434,6 +1450,52 @@
           2,
           2,
           2,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/models/review.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/spec/models/shelter_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
           2,
           null,
           null,
@@ -1444,7 +1506,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/app/models/shelter.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/models/shelter.rb": {
         "lines": [
           1,
           1,
@@ -1458,7 +1520,7 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/app/controllers/pets_controller.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/controllers/pets_controller.rb": {
         "lines": [
           1,
           1,
@@ -1524,13 +1586,13 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/app/controllers/application_controller.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/app/controllers/shelters_controller.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/controllers/shelters_controller.rb": {
         "lines": [
           1,
           1,
@@ -1538,8 +1600,8 @@
           null,
           null,
           1,
-          18,
-          18,
+          20,
+          20,
           null,
           null,
           1,
@@ -1574,7 +1636,18 @@
           null
         ]
       },
-      "/Users/priyapower/Turing/2module/projects/adopt_paired/app/controllers/welcome_controller.rb": {
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/controllers/reviews_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/robertorodriguez/turing/mod2/projects/adopt_paired/app/controllers/welcome_controller.rb": {
         "lines": [
           1,
           1,
@@ -1583,10 +1656,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "timestamp": 1598427025
-=======
-    "timestamp": 1598446443
->>>>>>> 9ceb39f1578872cb4579dc0a75466a761bda0704
+    "timestamp": 1598479413
   }
 }

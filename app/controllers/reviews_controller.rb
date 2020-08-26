@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
-  def show
-    @review = Review.find(params[:shelter_id])    
+
+  def new
+
+  end
+
+  def create
+    binding.pry
   end
 
 end
