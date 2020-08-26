@@ -17,7 +17,6 @@ RSpec.describe "Welcome Page", type: :feature do
 
     it "can see links for ALL SHELTERS at top of every html page" do
       visit "/"
-      save_and_open_page
       expect(page).to have_link("All Shelters")
       click_link "All Shelters"
       expect(current_path).to eq("/shelters")

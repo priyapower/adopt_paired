@@ -67,6 +67,20 @@ RSpec.describe "Shelters Show", type: :feature do
         click_link "All Pets at Shelter"
         expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
       end
+
+      # it "can see list of reviews" do
+      #   visit "/shelters/#{@shelter_1.id}"
+      #   expect(page).to have_
+      #
+      #   # As a visitor,
+      #   # When I visit a shelter's show page,
+      #   # I see a list of reviews for that shelter
+      #   # Each review will have:
+      #   # - title
+      #   # - rating
+      #   # - content
+      #   # - an optional picture
+      # end
     end
   end
 end
