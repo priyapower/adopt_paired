@@ -68,14 +68,19 @@ RSpec.describe "Shelters Show", type: :feature do
         expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
       end
 
-      it "can see a list of reviews" do
-        review_1 = @shelter_1.reviews.create!(title: 'Amazing', rating: 5, content: 'Found my best friend', image: 'https://live.staticflickr.com/7396/8728178651_912c2fa554_b.jpg')
-        visit "/shelters/#{@shelter_1.id}"
-        expect(page).to have_content(review_1.title)
-        expect(page).to have_content(review_1.rating)
-        expect(page).to have_content(review_1.content)
-        expect(page).to have_content(review_1.image)
-      end
+      # it "can see list of reviews" do
+      #   visit "/shelters/#{@shelter_1.id}"
+      #   expect(page).to have_
+      #
+      #   # As a visitor,
+      #   # When I visit a shelter's show page,
+      #   # I see a list of reviews for that shelter
+      #   # Each review will have:
+      #   # - title
+      #   # - rating
+      #   # - content
+      #   # - an optional picture
+      # end
     end
   end
 end

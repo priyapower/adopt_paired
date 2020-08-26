@@ -5,8 +5,8 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.integer :rating
       t.string :content
       t.string :image
+
       t.timestamps
     end
-    add_reference :pets, :shelter, foreign_key: true
   end
 end
