@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-26T17:34:12-06:00">2020-08-26T17:34:12-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-26T17:39:29-06:00">2020-08-26T17:39:29-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.53
+         1.52
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>725</b> relevant lines,
-    <span class="green"><b>725</b> lines covered</span> and
+    <b>728</b> relevant lines,
+    <span class="green"><b>728</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -403,9 +403,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#eaa1a2ec924c83fd23d617dd546217906c0add32" class="src_link" title="spec/features/reviews/new_spec.rb">spec/features/reviews/new_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">50</td>
-            <td class="cell--number">24</td>
-            <td class="cell--number">24</td>
+            <td class="cell--number">53</td>
+            <td class="cell--number">27</td>
+            <td class="cell--number">27</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -12460,8 +12460,8 @@
     
 
     <div class="t-line-summary">
-      <b>24</b> relevant lines.
-      <span class="green"><b>24</b> lines covered</span> and
+      <b>27</b> relevant lines.
+      <span class="green"><b>27</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -12638,13 +12638,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="16">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="16">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">      @review_1 = @shelter_1.reviews.create!(title: &#39;Amazing&#39;, rating: 5, content: &#39;Found my best friend&#39;, image: &#39;https://live.staticflickr.com/7396/8728178651_912c2fa554_b.jpg&#39;)</code>
           </li>
         </div>
       
@@ -12655,18 +12655,18 @@
 
             
 
-            <code class="ruby">    it &quot;can see the link to add new review&quot; do</code>
+            <code class="ruby">      @review_2 = @shelter_2.reviews.create!(title: &#39;Sucky&#39;, rating: 0, content: &#39;sucks&#39;, image: &#39;https://www.peta.org/wp-content/uploads/2012/05/no-kill-gallery-03.jpg&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="18">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="18">
+            
             
 
             
 
-            <code class="ruby">     visit &quot;/shelters/#{@shelter_1.id}&quot;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12677,7 +12677,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -12688,29 +12688,29 @@
 
             
 
-            <code class="ruby">     expect(page).to have_link(&quot;Add Review&quot;)</code>
+            <code class="ruby">    it &quot;can see the link to add new review&quot; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">     visit &quot;/shelters/#{@shelter_1.id}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="22">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="22">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">     click_link(&#39;Add Review&#39;)</code>
           </li>
         </div>
       
@@ -12721,18 +12721,18 @@
 
             
 
-            <code class="ruby">     expect(current_path).to eq(&quot;/shelters/#{@shelter_1.id}/reviews/new&quot;)</code>
+            <code class="ruby">     expect(page).to have_link(&quot;Add Review&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="24">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="24">
+            
             
 
             
 
-            <code class="ruby">     expect(page).to have_content(&quot;#{@shelter_1.name}&quot;)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12743,7 +12743,7 @@
 
             
 
-            <code class="ruby">     fill_in :title, with: &quot;Worst Shelter I&#39;ve been to&quot;</code>
+            <code class="ruby">     click_link(&#39;Add Review&#39;)</code>
           </li>
         </div>
       
@@ -12754,7 +12754,7 @@
 
             
 
-            <code class="ruby">     fill_in :rating, with: 1</code>
+            <code class="ruby">     expect(current_path).to eq(&quot;/shelters/#{@shelter_1.id}/reviews/new&quot;)</code>
           </li>
         </div>
       
@@ -12765,7 +12765,7 @@
 
             
 
-            <code class="ruby">     fill_in :content, with: &quot;Worst staff, poor animals they looked hungry&quot;</code>
+            <code class="ruby">     expect(page).to have_content(&quot;#{@shelter_1.name}&quot;)</code>
           </li>
         </div>
       
@@ -12776,18 +12776,18 @@
 
             
 
-            <code class="ruby">     fill_in :image, with: &quot;https://alpha.aeon.co/images/0bd4ba4f-8a60-4001-82fd-e1c47e8faf06/header_ESSAY-PA-21805359.jpg&quot;</code>
+            <code class="ruby">     fill_in :title, with: &quot;Worst Shelter I&#39;ve been to&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="29">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">     fill_in :rating, with: 1</code>
           </li>
         </div>
       
@@ -12798,7 +12798,7 @@
 
             
 
-            <code class="ruby">     click_button &quot;Add Review&quot;</code>
+            <code class="ruby">     fill_in :content, with: &quot;Worst staff, poor animals they looked hungry&quot;</code>
           </li>
         </div>
       
@@ -12809,29 +12809,29 @@
 
             
 
-            <code class="ruby">     save_and_open_page</code>
+            <code class="ruby">     fill_in :image, with: &quot;https://alpha.aeon.co/images/0bd4ba4f-8a60-4001-82fd-e1c47e8faf06/header_ESSAY-PA-21805359.jpg&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="32">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">     new_review = Review.last</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="33">
+          <li class="never" data-hits="" data-linenumber="32">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">     click_button &quot;Add Review&quot;</code>
           </li>
         </div>
       
@@ -12842,7 +12842,7 @@
 
             
 
-            <code class="ruby">     expect(current_path).to eq(&quot;/shelters/#{@shelter_1.id}&quot;)</code>
+            <code class="ruby">     save_and_open_page</code>
           </li>
         </div>
       
@@ -12853,18 +12853,18 @@
 
             
 
-            <code class="ruby">     expect(page).to have_content(new_review.title)</code>
+            <code class="ruby">     new_review = Review.last</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="36">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="36">
+            
             
 
             
 
-            <code class="ruby">     expect(page).to have_content(new_review.rating)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12875,7 +12875,7 @@
 
             
 
-            <code class="ruby">     expect(page).to have_content(new_review.content)</code>
+            <code class="ruby">     expect(current_path).to eq(&quot;/shelters/#{@shelter_1.id}&quot;)</code>
           </li>
         </div>
       
@@ -12886,51 +12886,51 @@
 
             
 
+            <code class="ruby">     expect(page).to have_content(new_review.title)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">     expect(page).to have_content(new_review.rating)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">     expect(page).to have_content(new_review.content)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="41">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">     expect(page).to have_css(&quot;img[src*=&#39;#{new_review.image}&#39;]&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="39">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="40">
-            
+          <li class="covered" data-hits="1" data-linenumber="42">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="41">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="42">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
+            <code class="ruby">     expect(page).to_not have_content(@review_2.title)</code>
           </li>
         </div>
       
@@ -12941,7 +12941,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -12952,7 +12952,7 @@
 
             
 
-            <code class="ruby"># On this new page, I see a form where I must enter:</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -12963,7 +12963,7 @@
 
             
 
-            <code class="ruby"># - title</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -12974,7 +12974,7 @@
 
             
 
-            <code class="ruby"># - rating</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12985,7 +12985,7 @@
 
             
 
-            <code class="ruby"># - content</code>
+            <code class="ruby"># On this new page, I see a form where I must enter:</code>
           </li>
         </div>
       
@@ -12996,7 +12996,7 @@
 
             
 
-            <code class="ruby"># I also see a field where I can enter an optional image (web address)</code>
+            <code class="ruby"># - title</code>
           </li>
         </div>
       
@@ -13007,12 +13007,45 @@
 
             
 
-            <code class="ruby"># When the form is submitted, I should return to that shelter&#39;s show page</code>
+            <code class="ruby"># - rating</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby"># - content</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="51">
+            
+            
+
+            
+
+            <code class="ruby"># I also see a field where I can enter an optional image (web address)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="52">
+            
+            
+
+            
+
+            <code class="ruby"># When the form is submitted, I should return to that shelter&#39;s show page</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="53">
             
             
 

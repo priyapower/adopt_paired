@@ -13,6 +13,9 @@ RSpec.describe "Review new page", type: :feature do
         city: "Denver",
         state: "CO",
         zip: "22222")
+      @review_1 = @shelter_1.reviews.create!(title: 'Amazing', rating: 5, content: 'Found my best friend', image: 'https://live.staticflickr.com/7396/8728178651_912c2fa554_b.jpg')
+      @review_2 = @shelter_2.reviews.create!(title: 'Sucky', rating: 0, content: 'sucks', image: 'https://www.peta.org/wp-content/uploads/2012/05/no-kill-gallery-03.jpg')
+
     end
     it "can see the link to add new review" do
      visit "/shelters/#{@shelter_1.id}"
@@ -36,7 +39,7 @@ RSpec.describe "Review new page", type: :feature do
      expect(page).to have_content(new_review.rating)
      expect(page).to have_content(new_review.content)
      expect(page).to have_css("img[src*='#{new_review.image}']")
-
+     expect(page).to_not have_content(@review_2.title)
     end
   end
 end
