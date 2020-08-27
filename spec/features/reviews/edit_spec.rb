@@ -26,7 +26,7 @@ RSpec.describe "Edit a review", type: :feature do
 
       click_on "Edit Review"
 
-      expect(current_path).to eq("/shelters/#{@shelter_1.id}/#{@review_1.id}/edit")
+      expect(current_path).to eq("/reviews/#{@review_1.id}/edit")
 
       fill_in :title, with: "Terrible"
       fill_in :rating, with: 1

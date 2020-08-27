@@ -1,7 +1,7 @@
 <h1>Adopt Don't Shop</h1></b>
 <h2> Edit Your Review: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}", method: :get %></h2>
 
-<%= form_tag("/shelters/#{@shelter.id}/#{@review.id}", method: :patch) do %>
+<%= form_tag("/reviews/#{@review.id}", method: :patch) do %>
   <p>Edit information about your review:</p>
   <%= label_tag "Title: " %>
   <%= text_field_tag :title, @review.title%>
