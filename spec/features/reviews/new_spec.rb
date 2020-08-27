@@ -31,7 +31,6 @@ RSpec.describe "Review new page", type: :feature do
      fill_in :image, with: "https://alpha.aeon.co/images/0bd4ba4f-8a60-4001-82fd-e1c47e8faf06/header_ESSAY-PA-21805359.jpg"
 
      click_button "Add Review"
-     save_and_open_page
      new_review = Review.last
 
      expect(current_path).to eq("/shelters/#{@shelter_1.id}")

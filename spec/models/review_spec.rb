@@ -5,8 +5,7 @@ RSpec.describe Review, type: :model do
     it { should validate_presence_of :title}
     it { should validate_presence_of :rating}
     it { should validate_presence_of :content}
-    it { should validate_presence_of(:image)}
-    # it { should allow_value("", nil).for(:image) }
+    it { should allow_value("", nil).for(:image) }
   end
 
   describe "relationships" do

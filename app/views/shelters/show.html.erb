@@ -11,7 +11,9 @@
  <ul> Title:<%= review.title %></ul>
  <ul> Rating:<%= review.rating %></ul>
  <ul> Content:<%= review.content %></ul>
- <%= image_tag(review.image) %>
+ <% if !review.image.empty? %>
+  <%= image_tag(review.image) %>
+ <% end %>
 <% end %>
 <h4><%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit" %></h4>
 <h4><%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete %></h4></b>
