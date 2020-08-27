@@ -24,7 +24,6 @@ RSpec.describe "Welcome Page", type: :feature do
 
     it "can see a nav bar on the welcome page" do
       visit "/"
-      save_and_open_page
 
       within"#nav-bar" do
         expect(page).to have_link("All Pets")
