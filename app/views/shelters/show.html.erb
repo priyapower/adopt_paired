@@ -8,15 +8,18 @@
 <p>Zip: <%= @shelter.zip %></p>
 <h3>Reviews for <%= @shelter.name %></h3>
 <% @shelter.reviews.each do |review| %>
- <ul> Title:<%= review.title %></ul>
- <ul> Rating:<%= review.rating %></ul>
- <ul> Content:<%= review.content %></ul>
- <% if !review.image.empty? %>
-  <%= image_tag(review.image) %>
- <% end %>
+  <section id='review-<%= review.id %>'>
+    <ul> Title:<%= review.title %></ul>
+    <ul> Rating:<%= review.rating %></ul>
+    <ul> Content:<%= review.content %></ul>
+   <% if !review.image.empty? %>
+    <%= image_tag(review.image) %>
+   <% end %>
  <nav>
    <ul><%= button_to 'Edit Review', "/reviews/#{review.id}/edit", method: :get %></ul>
+   <ul><%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete %></ul>
  </nav>
+</section>
 <% end %>
 <h4><%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit" %></h4>
 <h4><%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete %></h4></b>
