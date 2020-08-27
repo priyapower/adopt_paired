@@ -21,6 +21,21 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @shelter = Shelter.find(params[:shelter_id])
+    @review = @shelter.reviews.find(params[:review_id])
+  end
+
+  def update
+    @shelter = Shelter.find(params[:shelter_id])
+    @review = @shelter.reviews.find(params[:review_id])
+    if @review.update(review_params)
+      redirect_to "/shelters/#{@review.shelter_id}"
+    else
+      flash[:notice] = "One or more fields missing content."
+      redirect_to "/reviews/#{@review.id}/edit"
+    end
+  end
   private
 
   def review_params
