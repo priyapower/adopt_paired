@@ -40,13 +40,28 @@ RSpec.describe "Review new page", type: :feature do
      expect(page).to have_css("img[src*='#{new_review.image}']")
      expect(page).to_not have_content(@review_2.title)
     end
+
+    it "can not create a review without title, content and rating" do
+      visit "/shelters/#{@shelter_1.id}"
+
+      expect(page).to have_link("Add Review")
+
+      click_link('Add Review')
+      expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
+      expect(page).to have_content("#{@shelter_1.name}")
+      # fill_in :title, with: "Pretty cool staff"
+      # fill_in :rating, with: 4
+      # fill_in :content, with: "Staff cares about the pets and customers"
+
+      click_button "Add Review"
+
+      expect(page).to have_content('Review not created, required information missing')
+      expect(page).to have_button('Add Review')
+    end
+
+    # it "can create a review without an image" do
+    #
+    # end
+
   end
 end
-
-# On this new page, I see a form where I must enter:
-# - title
-# - rating
-# - content
-# I also see a field where I can enter an optional image (web address)
-# When the form is submitted, I should return to that shelter's show page
-# and I can see my new review
