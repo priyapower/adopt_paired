@@ -18,14 +18,12 @@ RSpec.describe "Review delete page", type: :feature do
     end
     it "can delete a review" do
       visit "/shelters/#{@shelter_2.id}"
-      save_and_open_page
       expect(page).to have_content(@review_2.title)
 
       within "#review-#{@review_2.id}" do
         expect(page).to have_link("Delete Review")
         click_link "Delete Review"
       end
-      save_and_open_page
       expect(current_path).to eq("/shelters/#{@shelter_2.id}")
 
       expect(page).to_not have_content(@review_2.title)
