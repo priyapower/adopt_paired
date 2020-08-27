@@ -27,8 +27,4 @@
 /config/master.key
 
 # Ignore test-related files
-/coverage
-/coverage/*
-
-# Ignore Simplecov generated files
-/coverage/*
+coverage/*
