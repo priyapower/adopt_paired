@@ -51,7 +51,8 @@ RSpec.describe "Add Favorite on Pet Show Page ", type: :feature do
 
     it "can favorite a pet from pet's show page" do
       visit "pets/#{@pet_4.id}"
-      
+      save_and_open_page
+
       within"#nav-bar" do
         expect(page).to have_link("All Pets")
         expect(page).to have_link("All Shelters")
