@@ -62,7 +62,7 @@ RSpec.describe "Add Favorite on Pet Show Page ", type: :feature do
 
       expect(page).to have_button("Favorite This Pet!")
       click_button("Favorite This Pet!")
-      expect(current_path).to eq("/favorites/#{@pet_4.id}")
+      expect(current_path).to eq("/pets/#{@pet_4.id}")
       expect(page).to have_content("This pet was added to My Favorites")
 
       within"#nav-bar" do
