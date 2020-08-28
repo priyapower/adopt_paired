@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "All Webpages", type: :feature do
+RSpec.describe "My Favorites visible on all Webpages", type: :feature do
   describe "As a visitor" do
     before :each do
       @shelter_1 = Shelter.create!(name: "The Humane Society - Denver",
