@@ -56,16 +56,24 @@ RSpec.describe "When a user visits any page", type: :feature do
       description: "This ragdoll mix is a fluffy and friendly addition to your household",
       status: true)
   end
+
   it "can see a favorite indicator in welcome nav bars" do
     visit "/"
-    # save_and_open_page
 
     within"#nav-bar" do
       expect(page).to have_link("All Pets")
       expect(page).to have_link("All Shelters")
-      expect(page).to have_link("My Favorites")
+      expect(page).to have_link("My Favorites(0)")
     end
   end
 
-  it "can see a count of favorite pets on the indicator"
+  it "can see a count of favorite pets on the indicator" do
+    visit "/"
+    save_and_open_page
+
+    within"#nav-bar" do
+      expect(page).to have_content("My Favorites(0)")
+    end
+
+  end
 end

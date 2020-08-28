@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Welcome Page", type: :feature do
   describe "As a visitor" do
+    
     it "can have a welcome page" do
       visit "/"
       expect(page).to have_content("Welcome to Adopt Don't Shop")
