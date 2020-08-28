@@ -53,11 +53,9 @@ li a {
 <section id="nav-bar">
  <nav>
    <ul>
-     <!-- <%= link_to "All Pets", "/pets", method: :get %>
-     <%= link_to "All Shelters", "/shelters", method: :get %> -->
      <li><a href="/shelters">All Shelters</a></li>
      <li><a href="/pets">All Pets</a></li>
-     <!-- <li><a href="/favorites">My Favorites(<%= @favorites.count %>)</a></li> -->
+     <li><a href="/favorites">My Favorites(<%= @favorites.count %>)</a></li>
    </ul>
  </nav>
 </section>
@@ -76,6 +74,7 @@ li a {
   <% end %></b>
   <h4><%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %></h4>
   <h4><%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %></h4>
+  <h4><%= button_to 'Favorite This Pet!', "/favorite/#{@pet.id}", method: :patch %></h4>
 </section>
 
 
