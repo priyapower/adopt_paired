@@ -1,7 +1,6 @@
 <h1>Adopt Don't Shop</h1></b>
 <h2>Edit the Shelter</h2></b>
-<%= link_to "All Pets", "/pets", method: :get %>
-<%= link_to "All Shelters", "/shelters", method: :get %>
+
 <%= form_tag "/shelters/#{@shelter.id}", method: 'patch' do %>
   <p>Edit information about the shelter: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}", method: :get %></p>
   <%= label_tag :name %>

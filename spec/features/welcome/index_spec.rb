@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Welcome Page", type: :feature do
   describe "As a visitor" do
-    
+
     it "can have a welcome page" do
       visit "/"
       expect(page).to have_content("Welcome to Adopt Don't Shop")
@@ -26,10 +26,10 @@ RSpec.describe "Welcome Page", type: :feature do
     it "can see a nav bar on the welcome page" do
       visit "/"
 
-      within"#nav-bar" do
-        expect(page).to have_link("All Pets")
-        expect(page).to have_link("All Shelters")
-      end
+
+      expect(page).to have_link("All Pets")
+      expect(page).to have_link("All Shelters")
+
     end
   end
 end

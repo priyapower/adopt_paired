@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AdoptSolo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> 
+    <title>AdoptPaired</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
   <body>
+    <header> 
+      <h3 style="display: inline; height: 100%; float: left"> 
+          <a href="/shelters">All Shelters</a>
+      </h3> 
+      <h3 style="display: inline; height: 100%; float: right; text-align:right">           <a href="/pets">All Pets</a>
+      </h3> 
+    </header>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bar"> 
+        <div class="container">
+        <h4><a href="/favorites">My Favorites(<%= favorites.count %>)</a></h4> 
+      </div>
+      </nav> 
+
+
     <% flash.each do |type, message| %>
       <section class=<%= type %>>
         <p><%= message %></p>
