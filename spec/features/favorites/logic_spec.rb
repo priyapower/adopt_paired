@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Add Favorite on Pet Show Page ", type: :feature do
+RSpec.describe "Favorites logic behavior", type: :feature do
   describe "As a visitor" do
     before :each do
       @shelter_1 = Shelter.create!(name: "The Humane Society - Denver",
@@ -47,25 +47,27 @@ RSpec.describe "Add Favorite on Pet Show Page ", type: :feature do
         shelter_id: "#{@shelter_2.id}",
         description: "This ragdoll mix is a fluffy and friendly addition to your household",
         status: true)
-      @favorites = Favorite.new([])
     end
-
-    it "can favorite a pet from pet's show page" do
-      visit "pets/#{@pet_4.id}"
-      expect(page).to have_link("All Pets")
-      expect(page).to have_link("All Shelters")
-
-      within"nav#nav-bar" do
-        expect(page).to have_link("My Favorites(0)")
-      end
-
-      expect(page).to have_button("Favorite This Pet!")
+    it "It can not favorite a pet more than once" do
+      visit "/pets/#{@pet_3.id}"
       click_button("Favorite This Pet!")
-      expect(current_path).to eq("/pets/#{@pet_4.id}")
+      expect(current_path).to eq("/pets/#{@pet_3.id}")
       expect(page).to have_content("This pet was added to My Favorites. You now have 1 favorite")
+      within "#nav-bar" do
+        expect(page).to have_content("My Favorites(1)")
+      end
+      expect(page).to_not have_button("Favorite This Pet!")
+      expect(page).to have_button("Remove From Favorites")
 
-      within"#nav-bar" do
-        expect(page).to have_link("My Favorites(1)")
+      click_button "Remove From Favorites"
+
+      expect(current_path).to eq("/pets/#{@pet_3.id}")
+
+      expect(page).to have_content("This pet was removed from My Favorites. You now have 0 favorites")
+      expect(page).to have_button("Favorite This Pet!")
+
+      within "#nav-bar" do
+        expect(page).to have_content("My Favorites(0)")
       end
     end
   end

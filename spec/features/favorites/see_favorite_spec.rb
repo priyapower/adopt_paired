@@ -52,9 +52,10 @@ RSpec.describe "My Favorites visible on all Webpages", type: :feature do
     it "can see a favorite indicator on welcome nav bar" do
       visit "/"
 
+      expect(page).to have_link("All Pets")
+      expect(page).to have_link("All Shelters")
+
       within"#nav-bar" do
-        expect(page).to have_link("All Pets")
-        expect(page).to have_link("All Shelters")
         expect(page).to have_link("My Favorites(0)")
       end
     end
@@ -65,11 +66,14 @@ RSpec.describe "My Favorites visible on all Webpages", type: :feature do
       within"#nav-bar" do
         expect(page).to have_content("My Favorites(0)")
       end
-
+      visit "/shelters"
+      within"#nav-bar" do
+        expect(page).to have_content("My Favorites(0)")
+      end
+      visit "/pets"
+      within"#nav-bar" do
+        expect(page).to have_content("My Favorites(0)")
+      end
     end
-
-    it "can see 'My Favorites' with counter on every web page"
-      #This updates Application Controller
-      #This completes user story 8
   end
 end

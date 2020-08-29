@@ -1,6 +1,6 @@
 class Pet < ApplicationRecord
   belongs_to :shelter
-  # validates_associated :shelter
+  has_many :favorites
 
   validates_presence_of :image
   validates_presence_of :name

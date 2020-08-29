@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AdoptSolo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> 
+    <title>AdoptPaired</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
   <body>
+
+    <div class="mx-auto" style="width: 1000px;">
+      <h1>Welcome to Adopt Don't Shop
+        <small class="text-muted"> A Denver Based Pet Adoption Website
+      </h1>
+    </div>
+
+    <header> 
+
+    </header>
+
+      <nav class="container" id="nav-bar"> 
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h6><a href="/shelters">All Shelters</a></h6>
+            </div>
+            <div class="col">
+              <h6><a href="/favorites">My Favorites(<%= favorites.count%>)</a></h6> 
+            </div>
+            <div class="col">
+              <h6><a href="/pets">All Pets</a></h6>
+            </div>
+          </div>
+        </div>
+      </nav> 
+
+
     <% flash.each do |type, message| %>
       <section class=<%= type %>>
         <p><%= message %></p>

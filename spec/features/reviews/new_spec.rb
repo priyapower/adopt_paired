@@ -49,19 +49,11 @@ RSpec.describe "Review new page", type: :feature do
       click_link('Add Review')
       expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
       expect(page).to have_content("#{@shelter_1.name}")
-      # fill_in :title, with: "Pretty cool staff"
-      # fill_in :rating, with: 4
-      # fill_in :content, with: "Staff cares about the pets and customers"
 
       click_button "Add Review"
 
       expect(page).to have_content('Review not created, required information missing')
       expect(page).to have_button('Add Review')
     end
-
-    # it "can create a review without an image" do
-    #
-    # end
-
   end
 end
