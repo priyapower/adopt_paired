@@ -21,6 +21,7 @@ class FavoritesController < ApplicationController
     session[:favorite] = favorites.contents
     quantity = favorites.count
     flash[:remove_favorite] = "This pet was removed from My Favorites. You now have #{pluralize(quantity, "favorite")}"
-    redirect_to "/pets/#{pet.id}"
+    redirect_to request.referer
   end
+
 end
