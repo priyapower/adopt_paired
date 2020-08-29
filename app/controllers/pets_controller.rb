@@ -10,12 +10,11 @@ class PetsController < ApplicationController
   end
 
   def show
-    @favorites = Favorite.new(session[:favorites])
+    @favorites = Favorite.new(session[:favorite])
     @pet = Pet.find(params[:id])
   end
 
   def new
-    # binding.pry
     @shelter = Shelter.find(params[:shelter_id])
     @shelter_id = params[:shelter_id]
   end

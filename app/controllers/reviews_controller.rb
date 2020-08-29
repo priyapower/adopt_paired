@@ -21,15 +21,11 @@ class ReviewsController < ApplicationController
   def edit
     @review = Review.find(params[:review_id])
     @shelter = Shelter.find(@review.shelter_id)
-    # binding.pry
-    # @shelter.reviews.find(params[:review_id])
-    # @shelter = Shelter.find(params[:shelter_id])
   end
 
   def update
     @review = Review.find(params[:review_id])
     @shelter = Shelter.find(@review.shelter_id)
-    # binding.pry
     if @review.update(review_params)
       redirect_to "/shelters/#{@review.shelter_id}"
     else
