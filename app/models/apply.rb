@@ -8,4 +8,5 @@ class Apply < ApplicationRecord
   validates_presence_of :phone_number
   validates_presence_of :description
 
+
 end

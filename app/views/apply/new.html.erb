@@ -1,0 +1,36 @@
+<h2>Adoption Application:</h2>
+
+
+  <% favorites.contents.each do |pet_id| %>
+  <section id="apply-pet-<%= pet_id %>">
+    <%= pet = Pet.find(pet_id) %>
+    <h2><%= link_to "#{pet.name}", "/pets/#{pet_id}", method: :get %></h2>
+    <%= image_tag(pet.image) %>
+    <%= form_tag("/apply", method: :patch) do %>
+      <%= check_box_tag 'pet_ids[]', pet.id, false, :id => "Adopt Me!" -%>
+      <%= submit_tag %>
+    <% end %>
+  </section>
+  <% end %>
+<br>
+<br>
+<br>
+<%= form_tag("/apply", method: :post) do %>
+  <p>Fill Out Your Application:</p>
+  <%= label_tag "Name: " %>
+  <%= text_field_tag :name %>
+  <%= label_tag "Address: " %>
+  <%= text_field_tag :address %>
+  <%= label_tag "City: " %>
+  <%= text_field_tag :city %>
+  <%= label_tag "State: " %>
+  <%= text_field_tag :state %>
+  <%= label_tag "Zip: " %>
+  <%= text_field_tag :zip %>
+  <%= label_tag "Phone Number: " %>
+  <%= text_field_tag :phone_number %>
+  <%= label_tag "Description: " %>
+  <%= text_field_tag :description %>
+
+  <%= submit_tag 'Submit My Application', class: :button %>
+<% end %>
