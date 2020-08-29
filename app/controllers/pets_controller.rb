@@ -10,7 +10,7 @@ class PetsController < ApplicationController
   end
 
   def show
-    @favorites = Favorite.new(session[:favorite])
+    # @favorites = Favorite.new(session[:favorite])
     @pet = Pet.find(params[:id])
   end
 

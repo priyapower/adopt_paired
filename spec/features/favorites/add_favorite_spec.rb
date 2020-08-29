@@ -68,14 +68,6 @@ RSpec.describe "Add Favorite on Pet Show Page ", type: :feature do
       within"#nav-bar" do
         expect(page).to have_link("My Favorites(1)")
       end
-              # Failures:
-              #
-              # 1) Add Favorite on Pet Show Page  As a visitor can favorite a pet from pet's show page
-              # Failure/Error: expect(page).to have_link("My Favorites(1)")
-              # expected to find link "My Favorites(1)" within #<Capybara::Node::Element tag="section" path="/html/body/section[2]"> but there were no matches
-              # # ./spec/features/favorites/add_favorite_spec.rb:69:in `block (4 levels) in <top (required)>'
-              # # ./spec/features/favorites/add_favorite_spec.rb:68:in `block (3 levels) in <top (required)>'
-
     end
   end
 end
