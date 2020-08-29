@@ -1,4 +1,3 @@
-<h1>Adopt Don't Shop</h1></b>
 <h2>Reviews for <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}", method: :get %></h2></b>
 <% @shelter.reviews.each do |review| %>
  <ul> Title:<%= review.title %></ul>

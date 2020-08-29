@@ -12,27 +12,28 @@
   <body>
 
     <div class="mx-auto" style="width: 1000px;">
-      <h1>Adopt Don't Shop
+      <h1>Welcome to Adopt Don't Shop
         <small class="text-muted"> A Denver Based Pet Adoption Website
       </h1>
     </div>
 
     <header> 
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h6><a href="/shelters">All Shelters</a></h6>
-          </div>
-          <div class="col">
-            <h6><a href="/pets">All Pets</a></h6>
-          </div>
-        </div>
-      </div>
+
     </header>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bar"> 
-        <div class="mx-auto" style="width: 250px;">
-          <h4><a href="/favorites">My Favorites(<%= favorites.count%>)</a></h4> 
+      <nav class="container" id="nav-bar"> 
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h6><a href="/shelters">All Shelters</a></h6>
+            </div>
+            <div class="col">
+              <h6><a href="/favorites">My Favorites(<%= favorites.count%>)</a></h6> 
+            </div>
+            <div class="col">
+              <h6><a href="/pets">All Pets</a></h6>
+            </div>
+          </div>
         </div>
       </nav> 
 
