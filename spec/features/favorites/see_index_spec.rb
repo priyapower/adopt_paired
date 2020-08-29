@@ -95,7 +95,12 @@ RSpec.describe "Favorite Index Page", type: :feature do
       within "#nav-bar" do
         expect(page).to have_content("My Favorites(1)")
       end
-
+    end
+    it "can see message no favorites in index" do
+      visit "/"
+      click_link "My Favorites"
+      expect(current_path).to eq("/favorites")
+      expect(page).to have_content("You currently don't have any pets in your favorites")
     end
   end
 end
