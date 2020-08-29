@@ -1,7 +1,6 @@
 class PetsController < ApplicationController
   def index
     @pets = Pet.all
-    # @shelter = Shelter.find(params[:shelter_id])
   end
 
   def index_shelter
@@ -10,7 +9,6 @@ class PetsController < ApplicationController
   end
 
   def show
-    # @favorites = Favorite.new(session[:favorite])
     @pet = Pet.find(params[:id])
   end
 
@@ -38,13 +36,7 @@ class PetsController < ApplicationController
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
-    # IF STATEMENT
-    #  if coming from index.html.erb
-        redirect_to "/pets"
-    # else
-        # redirect_to "/shelters/#{@shelter.id}/pets"
-    # end
-
+    redirect_to "/pets"
   end
 
   def destroy_from_shelter
@@ -58,6 +50,4 @@ class PetsController < ApplicationController
   def pet_params
     params.permit(:image, :name, :approximate_age, :sex, :description, :shelter_id)
   end
-
-
 end

@@ -1,5 +1,3 @@
-
-
 require "rails_helper"
 
 RSpec.describe "Favorites logic behavior", type: :feature do
@@ -62,7 +60,6 @@ RSpec.describe "Favorites logic behavior", type: :feature do
       expect(page).to have_button("Remove From Favorites")
 
       click_button "Remove From Favorites"
-      # A delete request is sent to "/favorites/:pet_id"
 
       expect(current_path).to eq("/pets/#{@pet_3.id}")
 

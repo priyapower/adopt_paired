@@ -22,8 +22,8 @@
 
 # Rails.application.load_seed
 
-Pet.destroy_all
-Shelter.destroy_all
+# Pet.destroy_all
+# Shelter.destroy_all
 
 # @shelter_1 = Shelter.create!(name: "Pawz",
 #   address: "1 Place St",

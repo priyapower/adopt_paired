@@ -32,5 +32,3 @@ RSpec.describe "Review delete page", type: :feature do
 
   end
 end
-# When I delete a shelter review I am returned to the shelter's show page
-# And I should no longer see that shelter review

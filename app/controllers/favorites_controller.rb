@@ -7,7 +7,6 @@ class FavoritesController < ApplicationController
 
   def update
     pet = Pet.find(params[:pet_id])
-    # @favorite = Favorite.new(session[:favorite])
     favorites.add_pet(pet.id)
     session[:favorite] = favorites.contents
     quantity = favorites.count

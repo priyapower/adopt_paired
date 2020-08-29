@@ -48,7 +48,6 @@ RSpec.describe "Pets Show page", type: :feature do
       expect(page).to have_content(@pet_1.approximate_age)
       expect(page).to have_content(@pet_1.sex)
       expect(page).to have_content(@pet_1.description)
-      # expect(page).to have_content(@pet_1.status)
       expect(@pet_1.status).to eq(true)
       expect(page).to have_content(@shelter_1.name)
     end
