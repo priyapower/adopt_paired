@@ -14,4 +14,13 @@ class FavoritesController < ApplicationController
     flash[:add_favorite] = "This pet was added to My Favorites. You now have #{pluralize(quantity, "favorite")}"
     redirect_to "/pets/#{pet.id}"
   end
+
+  def destroy
+    pet = Pet.find(params[:pet_id])
+    favorites.remove_pet(pet.id)
+    session[:favorite] = favorites.contents
+    quantity = favorites.count
+    flash[:remove_favorite] = "This pet was removed from My Favorites. You now have #{pluralize(quantity, "favorite")}"
+    redirect_to "/pets/#{pet.id}"
+  end
 end

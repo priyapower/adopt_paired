@@ -1,6 +1,8 @@
+
+
 require "rails_helper"
 
-RSpec.describe "Favorite Index Page", type: :feature do
+RSpec.describe "Favorites logic behavior", type: :feature do
   describe "As a visitor" do
     before :each do
       @shelter_1 = Shelter.create!(name: "The Humane Society - Denver",
@@ -48,24 +50,28 @@ RSpec.describe "Favorite Index Page", type: :feature do
         description: "This ragdoll mix is a fluffy and friendly addition to your household",
         status: true)
     end
-    it "I see all pets I've favorited" do
-      visit "/pets/#{@pet_4.id}"
-      click_button("Favorite This Pet!")
-      expect(current_path).to eq("/pets/#{@pet_4.id}")
-      expect(page).to have_content("This pet was added to My Favorites. You now have 1 favorite")
-
+    it "It can not favorite a pet more than once" do
       visit "/pets/#{@pet_3.id}"
       click_button("Favorite This Pet!")
       expect(current_path).to eq("/pets/#{@pet_3.id}")
-      expect(page).to have_content("This pet was added to My Favorites. You now have 2 favorites")
-      click_link "My Favorites"
-      expect(current_path).to eq("/favorites")
-      expect(page).to have_content(@pet_3.name)
-      expect(page).to have_link(@pet_3.name)
-      expect(page).to have_css("img[src*='#{@pet_3.image}']")
-      expect(page).to have_content(@pet_4.name)
-      expect(page).to have_link(@pet_4.name)
-      expect(page).to have_css("img[src*='#{@pet_4.image}']")
+      expect(page).to have_content("This pet was added to My Favorites. You now have 1 favorite")
+      within "#nav-bar" do
+        expect(page).to have_content("My Favorites(1)")
+      end
+      expect(page).to_not have_button("Favorite This Pet!")
+      expect(page).to have_button("Remove From Favorites")
+
+      click_button "Remove From Favorites"
+      # A delete request is sent to "/favorites/:pet_id"
+
+      expect(current_path).to eq("/pets/#{@pet_3.id}")
+
+      expect(page).to have_content("This pet was removed from My Favorites. You now have 0 favorites")
+      expect(page).to have_button("Favorite This Pet!")
+
+      within "#nav-bar" do
+        expect(page).to have_content("My Favorites(0)")
+      end
     end
   end
 end

@@ -10,8 +10,13 @@
     <p>Status: Adoptable </p>
   <% else %>
     <p>Status: Pending Adoption </p>
-  <% end %></b>
+  <% end %>
   <h4><%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %></h4>
   <h4><%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %></h4>
-  <h4><%= button_to 'Favorite This Pet!', "/favorites/#{@pet.id}", method: :patch %></h4>
+  <% if favorites.favorited?(@pet.id) %>
+    <h4><%= button_to 'Remove From Favorites', "/favorites/#{@pet.id}", method: :delete %></h4>
+  <% else %>
+    <h4><%= button_to 'Favorite This Pet!', "/favorites/#{@pet.id}", method: :patch %></h4>
+  <% end %>
+
 </section>
