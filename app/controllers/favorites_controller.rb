@@ -1,6 +1,10 @@
 class FavoritesController < ApplicationController
   include ActionView::Helpers::TextHelper
 
+  def index
+    favorites
+  end
+
   def update
     pet = Pet.find(params[:pet_id])
     # @favorite = Favorite.new(session[:favorite])
