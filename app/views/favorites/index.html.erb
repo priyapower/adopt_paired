@@ -13,3 +13,5 @@
 <% else %>
   <p>You currently don't have any pets in your favorites</p>
 <% end %>
+
+<%= button_to 'Remove All Favorites', "/favorites", method: :delete %>

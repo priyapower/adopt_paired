@@ -24,4 +24,8 @@ class FavoritesController < ApplicationController
     redirect_to request.referer
   end
 
+  def remove_all
+    favorites.contents.clear
+    redirect_to request.referer
+  end
 end
