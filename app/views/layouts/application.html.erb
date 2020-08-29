@@ -8,20 +8,38 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <style media="screen">
+      html {
+        background: url(https://media.istockphoto.com/photos/kitten-and-dachshund-puppy-wrestle-outside-picture-id1174000357?b=1&k=6&m=1174000357&s=170667a&w=0&h=ekAEvVwWIO3bAqp1DzZquQxtmvh8-uqVPgmING9TmoE=) no-repeat center fixed;
+        background-size: cover;
+      }
+    </style>
   </head>
   <body>
+    
+    <div class="mx-auto" style="width: 1000px;">
+      <h1>Adopt Don't Shop
+        <small class="text-muted"> A Denver Based Pet Adoption Website
+      </h1>
+    </div>
+
     <header> 
-      <h3 style="display: inline; height: 100%; float: left"> 
-          <a href="/shelters">All Shelters</a>
-      </h3> 
-      <h3 style="display: inline; height: 100%; float: right; text-align:right">           <a href="/pets">All Pets</a>
-      </h3> 
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h6><a href="/shelters">All Shelters</a></h6>
+          </div>
+          <div class="col">
+            <h6><a href="/pets">All Pets</a></h6>
+          </div>
+        </div>
+      </div>
     </header>
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bar"> 
-        <div class="container">
-        <h4><a href="/favorites">My Favorites(<%= favorites.count %>)</a></h4> 
-      </div>
+        <div class="mx-auto" style="width: 250px;">
+          <h4><a href="/favorites">My Favorites(<%= favorites.count%>)</a></h4> 
+        </div>
       </nav> 
 
 
