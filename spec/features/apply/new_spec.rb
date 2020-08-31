@@ -101,5 +101,27 @@ RSpec.describe "Apply new page", type: :feature do
       expect(page).to have_content(@pet_3.name)
       expect(page).to_not have_content(@pet_4.name)
     end
+
+    it "can see error message if applciation is incomplete" do
+      visit "/pets/#{@pet_1.id}"
+      click_button("Favorite This Pet!")
+
+      visit "/pets/#{@pet_2.id}"
+      click_button("Favorite This Pet!")
+
+      click_link "My Favorites"
+      click_link "Adopt from Favorited Pets!"
+
+      within "#apply-pet-#{@pet_2.id}" do
+        check("Adopt Me!")
+        click_button("Save changes")
+      end
+
+      expect(page).to have_content("You have saved pet(s) to your application")
+      fill_in :name, with: "UserPErson"
+      click_button "Submit My Application"
+      save_and_open_page
+      expect(page).to have_content("Your application is missing one or more elements. Pleae complete all fields before submitting your application")
+    end
   end
 end
