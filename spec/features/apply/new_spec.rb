@@ -48,6 +48,7 @@ RSpec.describe "Apply new page", type: :feature do
         description: "This ragdoll mix is a fluffy and friendly addition to your household",
         status: true)
     end
+
     it "make a new application form from a favorited pet" do
       visit "/pets/#{@pet_4.id}"
       click_button("Favorite This Pet!")
@@ -79,7 +80,6 @@ RSpec.describe "Apply new page", type: :feature do
       end
 
       expect(page).to have_content("You have saved pet(s) to your application")
-      # save_and_open_page
       fill_in :name, with: "UserPErson"
       fill_in :address, with: "123 Main Street"
       fill_in :city, with: "Denver"
@@ -120,7 +120,6 @@ RSpec.describe "Apply new page", type: :feature do
       expect(page).to have_content("You have saved pet(s) to your application")
       fill_in :name, with: "UserPErson"
       click_button "Submit My Application"
-      save_and_open_page
       expect(page).to have_content("Your application is missing one or more elements. Pleae complete all fields before submitting your application")
     end
   end
