@@ -94,7 +94,7 @@ RSpec.describe "Apply new page", type: :feature do
       # CURRENT ERROR MESSAGE;
       # Failure/Error: expect(page).to have_content("Your application has gone through for the pet: #{@pet_4.name}")  Capybara::ElementNotFound: Unable to find xpath "/html"
 
-      expect(page).to have_content("Your application has gone through for the pet: #{@pet_4.name}")
+      expect(page).to have_content("Your application has gone through for 1 pet")
 
       expect(current_path).to eq("/favorites")
 

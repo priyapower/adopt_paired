@@ -11,7 +11,7 @@
     <%= image_tag(pet.image) %>
     <%= form_tag("/apply", method: :patch) do %>
       <%= check_box_tag 'favorited_pets[]', pet.id, false, :id => "Adopt Me!" -%>
-      <%= submit_tag %>
+    <%= submit_tag %>
     <% end %>
   </section>
 <% end %>
