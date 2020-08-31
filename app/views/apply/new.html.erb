@@ -1,20 +1,25 @@
 <h2>Adoption Application:</h2>
-
-
-  <% favorites.contents.each do |pet_id| %>
+<b>
+  <b>
+    <b>
+      <b>
+<h3>Select 1 or more pets to apply for and "save changes"</h3>
+<% favorites.contents.each do |pet_id| %>
   <section id="apply-pet-<%= pet_id %>">
     <%= pet = Pet.find(pet_id) %>
-    <h2><%= link_to "#{pet.name}", "/pets/#{pet_id}", method: :get %></h2>
+    <h4><%= link_to "#{pet.name}", "/pets/#{pet_id}", method: :get %></h4>
     <%= image_tag(pet.image) %>
     <%= form_tag("/apply", method: :patch) do %>
-      <%= check_box_tag 'pet_ids[]', pet.id, false, :id => "Adopt Me!" -%>
+      <%= check_box_tag 'favorited_pets[]', pet.id, false, :id => "Adopt Me!" -%>
       <%= submit_tag %>
     <% end %>
   </section>
-  <% end %>
-<br>
-<br>
-<br>
+<% end %>
+<b>
+  <b>
+    <b>
+      <b>
+<h3>Once you have selected pets, please fill out the following information</h3>
 <%= form_tag("/apply", method: :post) do %>
   <p>Fill Out Your Application:</p>
   <%= label_tag "Name: " %>

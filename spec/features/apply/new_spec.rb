@@ -77,6 +77,8 @@ RSpec.describe "Apply new page", type: :feature do
         check("Adopt Me!")
         click_button("Save changes")
       end
+
+      expect(page).to have_content("You have saved pet(s) to your application")
       # save_and_open_page
       fill_in :name, with: "UserPErson"
       fill_in :address, with: "123 Main Street"

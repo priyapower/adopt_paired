@@ -12,7 +12,13 @@ RSpec.describe Apply, type: :model do
   end
 
   describe "relationships" do
-    it { should belong_to :pet}
+    # it { should belong_to :pet}
+    # This currently seems wrong... I think what is more correct I have below as a comment
+        # it { should have_many :pet_apply} # maybe :pet_applies???
+        # it { should have_many(:pets).through(:pet_apply)} # is this :pet or :pets??
+
+    it { should have_many :pet_apply}
+    it { should have_many(:pets).through(:pet_apply)}
   end
 
 end
