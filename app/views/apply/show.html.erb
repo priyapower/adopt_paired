@@ -1,12 +1,19 @@
 <h3>This application is for the following pet(s):</h3>
-  <% @app_pet_ids.each do |pet_id| %>
-  <% pet = Pet.find(pet_id) %>
-  <ul><%= link_to "#{pet.name}", "/pets/#{pet.id}", method: :get %></ul>
-  <% end %>
-  <b>
-  <b>
-  <b>
-  <b>
+    <% @app_pet_ids.each do |pet_id| %>
+    <% pet = Pet.find(pet_id) %>
+      <section id="application-pet-<%=pet.id%>">
+      <ul><%= link_to "#{pet.name}", "/pets/#{pet.id}", method: :get %></ul>
+      <ul>Approve Application for this Pet"</ul>
+      <%= form_tag("/pets/#{pet.id}", method: :patch) do %>
+        <%= check_box_tag 'approved_pet[]', pet.id, false, :id => "Approve Application for this Pet" -%>
+      <%= submit_tag %>
+      <% end %>
+      </section>
+    <% end %>
+<b>
+<b>
+<b>
+<b>
   <section id="application-info">
     <ul> Name: <%= @application.name %></ul>
     <ul> Address: <%= @application.address %></ul>

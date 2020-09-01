@@ -19,7 +19,6 @@ class ApplyController < ApplicationController
     @app_pet_ids = PetApply.where(apply_id:@application.id).pluck(:pet_id)
   end
 
-
   def create
     pet_ids = session[:apply_pets]
     if pet_ids.nil?

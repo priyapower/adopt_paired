@@ -89,15 +89,16 @@ RSpec.describe "Apply Show Page", type: :feature do
       visit "/apply/#{@application_2.id}"
 
       within "#application-pet-#{@pet_2.id}" do
-        expect(page).to have_link("Approve Application for this Pet")
-      end
-      within "#application-pet-#{@pet_3.id}" do
-        expect(page).to have_link("Approve Application for this Pet")
-        click_link "Approve Application for this Pet"
+        expect(page).to have_content("Approve Application for this Pet")
       end
 
-      expect(current_path).to eq("/pet/#{@pet_3.id}")
-      expect(page).to have_content("Status: Pending Apoption")
+      within "#application-pet-#{@pet_3.id}" do
+        expect(page).to have_content("Approve Application for this Pet")
+        check("Approve Application for this Pet")
+        click_button("Save changes")
+      end
+      expect(current_path).to eq("/pets/#{@pet_3.id}")
+      expect(page).to have_content("Status: Pending Adoption")
       expect(page).to have_content("Pet on Hold: for #{@application_2.name}")
     end
 

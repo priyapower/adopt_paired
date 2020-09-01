@@ -32,7 +32,7 @@ RSpec.describe "Apply new page", type: :feature do
         sex: "Male",
         shelter_id: "#{@shelter_1.id}",
         description: "This pitty mix will melt your heart with his sweet temperament",
-        status: false)
+        status: true)
       @pet_3 = Pet.create!(image: image_3,
         name: "Ruby",
         approximate_age: 0,

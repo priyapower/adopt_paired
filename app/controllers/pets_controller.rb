@@ -10,6 +10,14 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    app_id = PetApply.where(pet_id:@pet.id).pluck(:apply_id)
+    if !session[:approved_pet].nil?
+      @pet.status = false
+    end
+    # session[:approved_pet].clear
+    if !@pet.status && !app_id.empty?
+      @application = Apply.find(app_id.first)
+    end
   end
 
   def new
@@ -28,6 +36,7 @@ class PetsController < ApplicationController
   end
 
   def update
+    session[:approved_pet] = params[:approved_pet]
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
     redirect_to "/pets/#{@pet.id}"
