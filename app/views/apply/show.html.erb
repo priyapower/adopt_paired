@@ -24,7 +24,7 @@
 <p>Pets <strong>in process</strong> for this application</p>
 <% @app_pet_ids.each do |pet_id| %>
   <% pet = Pet.find(pet_id) %>
-    <% if !pet.status%>
+    <% if !pet.status %>
     <section id="application-pet-<%=pet.id%>">
       <ul><%= link_to "#{pet.name}", "/pets/#{pet.id}", method: :get %></ul>
     </section>

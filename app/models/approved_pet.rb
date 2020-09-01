@@ -4,9 +4,5 @@ class ApprovedPet
   def initialize(initial_contents)
     @contents = initial_contents || Array.new()
   end
-  # 
-  # def add_pet(id)
-  #   @contents << id
-  # end
 
 end

@@ -121,6 +121,41 @@ RSpec.describe "Apply Show Page", type: :feature do
       expect(page).to have_content("Pet on Hold: for #{@application_1.name}")
 
       visit "/apply/#{@application_1.id}"
+      # never checked the static page to confirm what is now visible on this unique application page (ideally, pet_1, pet_2 should be in the applied for column)
+    end
+
+    it "can prevent more than one application for a pet" do
+      # User Story 24, Pets can only have one approved application on them at any time
+
+
+      # Application 1 has pet_1 and pet_2
+      # Application 2 has pet_3 and pet_2
+      # This means that I can approved pet_2 one Application 1
+      # THEN, application 2, SHOULD NOT BE ABLE TO approve pet_2
+      visit "/pets/#{@pet_2.id}/apply"
+      expect(page).to have_content(@application_1.name)
+      expect(page).to have_content(@application_2.name)
+
+      # visit "/apply/#{@application_2.id}"
+
+      visit "/apply/#{@application_1.id}"
+      within "#application-pet-#{@pet_2.id}" do
+        check("Approve Application for this Pet")
+        click_button("Save changes")
+      end
+
+      visit "/apply/#{@application_2.id}"
+
+      within "#application-pet-#{@pet_2.id}" do
+        expect(page).to_not have_content(@pet_2.name)
+      end
+      #
+      # expect(page).to have_content("This pet is pending approval on another application. Please contact your shelter for more details.")
+
+
+      visit "/pets/#{@pet_2.id}/apply"
+      expect(page).to have_content(@application_1.name)
+      expect(page).to have_content(@application_2.name)
     end
 
   end

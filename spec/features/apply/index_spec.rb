@@ -66,6 +66,7 @@ RSpec.describe "Show Applied from Unique Pet Page", type: :feature do
       PetApply.create!({pet: @pet_2, apply: @application_2})
       PetApply.create!({pet: @pet_3, apply: @application_2})
     end
+    
     it "can have an apply index page" do
       visit "/pets/#{@pet_2.id}"
       expect(page).to have_link("View All Applications for This Pet")
