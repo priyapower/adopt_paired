@@ -135,12 +135,32 @@ RSpec.describe "Apply Show Page", type: :feature do
       end
 
       visit "/apply/#{@application_2.id}"
-      expect(page).to_not have_content(@pet_2.name)
+      expect(page).to_not have_css("#application-pet-#{@pet_2.id}")
 
       visit "/pets/#{@pet_2.id}/apply"
       expect(page).to have_content(@application_1.name)
       expect(page).to have_content(@application_2.name)
     end
 
+    it "can unapprove an application and change pet status to adoptable" do
+      visit "/apply/#{@application_1.id}"
+      within "#application-pet-#{@pet_2.id}" do
+        check("Approve Application for this Pet")
+        click_button("Save changes")
+      end
+      visit "/apply/#{@application_1.id}"
+      expect(page).to_not have_css("#application-pet-#{@pet_2.id}")
+      expect(page).to have_link("Unapprove this application for pet: #{@pet_2.name}")
+
+      click_link "Unapprove this application for pet: #{@pet_2.name}"
+
+      expect(current_path).to eq("/apply/#{@application_1.id}")
+      within "#application-pet-#{@pet_2.id}" do
+        check("Approve Application for this Pet")
+      end
+      visit "/pets/#{@pet_2.id}"
+      expect(page).to have_content("Status: Adoptable")
+      expect(page).to_not have_content("Pet on Hold: for #{@application_1.name}")
+    end
   end
 end

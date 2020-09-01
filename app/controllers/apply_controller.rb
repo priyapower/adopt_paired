@@ -55,6 +55,19 @@ class ApplyController < ApplicationController
     redirect_to request.referer
   end
 
+  def update
+    pet = Pet.find(params[:id])
+    pet.applys.each do |application|
+      application.pets.each do |pet|
+        if !pet.status
+          pet.update(status: true)
+          @application = Apply.find(application.id)
+        end
+      end
+    end
+    redirect_to "/apply/#{@application.id}"
+  end
+
   private
   def apply_params
     params.permit(:name, :address, :city, :state, :zip, :phone_number, :description)

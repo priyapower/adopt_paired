@@ -16,6 +16,7 @@
         <% end %>
     </section>
     <% end %>
+    <ul><%= link_to "Unapprove this application for pet: #{pet.name}", "/apply/pets/#{pet.id}", method: :patch %></ul>
   <% end %>
 <b>
 <b>
