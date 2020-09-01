@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Apply Show Page", type: :feature do
+RSpec.describe "Show Applied from Unique Pet Page", type: :feature do
   describe "As a visitor" do
     before :each do
       @shelter_1 = Shelter.create!(name: "The Humane Society - Denver",
@@ -75,7 +75,6 @@ RSpec.describe "Apply Show Page", type: :feature do
       expect(page).to have_link(@application_1.name)
       expect(page).to have_content(@application_2.name)
       expect(page).to have_link(@application_2.name)
-      # Link goes to "/apply/#{@application.id}" or '/apply/:id'
     end
   end
 end

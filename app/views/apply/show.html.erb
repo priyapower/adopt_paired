@@ -1,5 +1,4 @@
-<h3>Application for pet(s):</h3>
-  <b>
+<h3>This application is for the following pet(s):</h3>
   <% @app_pet_ids.each do |pet_id| %>
   <% pet = Pet.find(pet_id) %>
   <ul><%= link_to "#{pet.name}", "/pets/#{pet.id}", method: :get %></ul>

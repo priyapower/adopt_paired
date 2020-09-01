@@ -1,0 +1,11 @@
+<h3>The pet(<%= @pet.name %>) has the following application information</h3>
+  <b>
+  <b>
+  <b>
+  <b>
+  <section id="pet-applications-info">
+    <% @app_ids.each do |app_id| %>
+      <% application = Apply.find(app_id) %>
+      <ul><%= link_to "#{application.name}", "/apply/#{application.id}", method: :get %></ul>
+    <% end %>
+  </section>
