@@ -1,7 +1,8 @@
 <h3>Application for pet(s):</h3>
   <b>
-  <% @pets.each do |pet| %>
-  <ul><%= link_to "#{@pet.name}", "/pets/#{@pet.id}", method: :get %></ul>
+  <% @app_pet_ids.each do |pet_id| %>
+  <% pet = Pet.find(pet_id) %>
+  <ul><%= link_to "#{pet.name}", "/pets/#{pet.id}", method: :get %></ul>
   <% end %>
   <b>
   <b>
