@@ -19,20 +19,22 @@ class ApplyController < ApplicationController
     elsif
       user = Apply.new(apply_params)
       pet_ids.each do |id|
-        @pet = Pet.find(id)
-        if user.pet_id.nil?
-          user.pet_id = @pet.id
-        else
-          user.pet_id << pet
-        end
+        pet = Pet.find(id)
+        PetApply.create({pet: pet, apply: user})
       end
-
+        # if user.pet_id.nil?
+        #   user.pet_id = pet.id
+        # else
+        #   binding.pry
+        #   user.pet_id << pet
+        # end
+            # This stops working as soon as you have more than one pet! We forgot to completely connect our Join Table, and how we have it associated :)
       if user.save
-        counter = pet_ids.count
-        flash[:apply_complete] = "Your application has gone through for #{pluralize(counter, "pet")}"
+        flash[:apply_complete] = "Your application has gone through for #{pluralize(pet_ids.count, "pet")}"
         pet_ids.each do |pet_id|
           favorites.contents.delete(pet_id.to_i)
         end
+        applied_pets
         redirect_to "/favorites"
       else
         flash[:apply_failure] = "Your application is missing one or more elements. Pleae complete all fields before submitting your application"
@@ -65,7 +67,11 @@ class ApplyController < ApplicationController
   end
 
   def update_chosen_pets
-    session[:apply_pets] = params[:favorited_pets]
+    if session[:apply_pets].nil?
+      session[:apply_pets] = params[:favorited_pets]
+    else
+      session[:apply_pets] << params[:favorited_pets].first
+    end
     flash[:apply_pets_notice] = "You have saved pet(s) to your application"
     redirect_to request.referer
         # research refreshing without loosing text_field user input data
