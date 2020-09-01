@@ -3,9 +3,14 @@ class ApplyController < ApplicationController
 
   def index
     @pet = Pet.find(params[:id])
-    @app_ids = PetApply.where(pet_id:@pet.id).pluck(:apply_id)
+    if PetApply.where(pet_id:@pet.id).empty?
+      flash[:apply_not_found] = "There are no applications in for this pet yet"
+      redirect_to "/pets/#{@pet.id}"
+    else
+      @app_ids = PetApply.where(pet_id:@pet.id).pluck(:apply_id)
+    end
   end
-  
+
   def new
   end
 
