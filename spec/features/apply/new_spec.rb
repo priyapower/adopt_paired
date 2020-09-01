@@ -97,9 +97,10 @@ RSpec.describe "Apply new page", type: :feature do
       expect(page).to have_content("Your application has gone through for 1 pet")
 
       expect(current_path).to eq("/favorites")
-
-      expect(page).to have_content(@pet_3.name)
-      expect(page).to_not have_content(@pet_4.name)
+      within "#favorited-pets" do
+        expect(page).to have_content(@pet_3.name)
+        expect(page).to_not have_content(@pet_4.name)
+      end
     end
 
     it "can see error message if applciation is incomplete" do
