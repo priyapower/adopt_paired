@@ -14,7 +14,6 @@ class PetsController < ApplicationController
     if !session[:approved_pet].nil?
       @pet.status = false
     end
-    # session[:approved_pet].clear
     if !@pet.status && !app_id.empty?
       @application = Apply.find(app_id.first)
     end
@@ -36,9 +35,12 @@ class PetsController < ApplicationController
   end
 
   def update
-    session[:approved_pet] = params[:approved_pet]
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
+    approved_pet
+    if !approved_pet.contents.empty?
+      session[:approved_pet] = approved_pet.contents
+    end
     redirect_to "/pets/#{@pet.id}"
   end
 

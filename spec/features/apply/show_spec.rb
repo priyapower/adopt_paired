@@ -25,14 +25,14 @@ RSpec.describe "Apply Show Page", type: :feature do
         sex: "Female",
         shelter_id: "#{@shelter_1.id}",
         description: "Adorable chihuahua mix with lots of love to give",
-        status: false)
+        status: true)
       @pet_2 = Pet.create!(image: image_2,
         name: "George",
         approximate_age: 5,
         sex: "Male",
         shelter_id: "#{@shelter_1.id}",
         description: "This pitty mix will melt your heart with his sweet temperament",
-        status: false)
+        status: true)
       @pet_3 = Pet.create!(image: image_3,
         name: "Ruby",
         approximate_age: 0,
@@ -89,17 +89,38 @@ RSpec.describe "Apply Show Page", type: :feature do
       visit "/apply/#{@application_2.id}"
 
       within "#application-pet-#{@pet_2.id}" do
-        expect(page).to have_content("Approve Application for this Pet")
+        check("Approve Application for this Pet")
       end
 
       within "#application-pet-#{@pet_3.id}" do
-        expect(page).to have_content("Approve Application for this Pet")
         check("Approve Application for this Pet")
         click_button("Save changes")
       end
       expect(current_path).to eq("/pets/#{@pet_3.id}")
       expect(page).to have_content("Status: Pending Adoption")
       expect(page).to have_content("Pet on Hold: for #{@application_2.name}")
+    end
+
+    it "can approve more than one pet" do
+      visit "/apply/#{@application_1.id}"
+      within "#application-pet-#{@pet_1.id}" do
+        check("Approve Application for this Pet")
+        click_button("Save changes")
+      end
+      expect(current_path).to eq("/pets/#{@pet_1.id}")
+      expect(page).to have_content("Status: Pending Adoption")
+      expect(page).to have_content("Pet on Hold: for #{@application_1.name}")
+
+      visit "/apply/#{@application_1.id}"
+      within "#application-pet-#{@pet_2.id}" do
+        check("Approve Application for this Pet")
+        click_button("Save changes")
+      end
+      expect(current_path).to eq("/pets/#{@pet_2.id}")
+      expect(page).to have_content("Status: Pending Adoption")
+      expect(page).to have_content("Pet on Hold: for #{@application_1.name}")
+
+      visit "/apply/#{@application_1.id}"
     end
 
   end

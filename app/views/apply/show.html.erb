@@ -1,15 +1,35 @@
 <h3>This application is for the following pet(s):</h3>
-    <% @app_pet_ids.each do |pet_id| %>
+<ul>Approve Application for this Pet"</ul>
+<b>
+<b>
+<b>
+<b>
+<p>Pets <strong>adoptable</strong> for this Application</p>
+  <% @app_pet_ids.each do |pet_id| %>
     <% pet = Pet.find(pet_id) %>
-      <section id="application-pet-<%=pet.id%>">
-      <ul><%= link_to "#{pet.name}", "/pets/#{pet.id}", method: :get %></ul>
-      <ul>Approve Application for this Pet"</ul>
-      <%= form_tag("/pets/#{pet.id}", method: :patch) do %>
-        <%= check_box_tag 'approved_pet[]', pet.id, false, :id => "Approve Application for this Pet" -%>
-      <%= submit_tag %>
-      <% end %>
-      </section>
+    <% if pet.status %>
+    <section id="application-pet-<%=pet.id%>">
+        <ul><%= link_to "#{pet.name}", "/pets/#{pet.id}", method: :get %></ul>
+        <%= form_tag("/pets/#{pet.id}", method: :patch) do %>
+          <%= check_box_tag 'approved_pet[]', pet.id, false, :id => "Approve Application for this Pet" -%>
+        <%= submit_tag %>
+        <% end %>
+    </section>
     <% end %>
+  <% end %>
+<b>
+<b>
+<b>
+<b>
+<p>Pets <strong>in process</strong> for this application</p>
+<% @app_pet_ids.each do |pet_id| %>
+  <% pet = Pet.find(pet_id) %>
+    <% if !pet.status%>
+    <section id="application-pet-<%=pet.id%>">
+      <ul><%= link_to "#{pet.name}", "/pets/#{pet.id}", method: :get %></ul>
+    </section>
+    <% end %>
+<% end %>
 <b>
 <b>
 <b>
