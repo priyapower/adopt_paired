@@ -5,7 +5,8 @@ class ApplyController < ApplicationController
   end
 
   def show
-
+    @application = Apply.find(params[:id])
+    @app_pet_ids = PetApply.where(apply_id:@application.id).pluck(:pet_id)
   end
 
   def create
