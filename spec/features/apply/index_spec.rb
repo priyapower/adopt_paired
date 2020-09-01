@@ -76,5 +76,10 @@ RSpec.describe "Show Applied from Unique Pet Page", type: :feature do
       expect(page).to have_content(@application_2.name)
       expect(page).to have_link(@application_2.name)
     end
+
+    it "can have a message when no applications" do
+      visit "/pets/#{@pet_4.id}/apply"
+      expect(page).to have_content("There are no applications in for this pet yet")
+    end
   end
 end
