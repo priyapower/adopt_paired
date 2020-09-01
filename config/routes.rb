@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get '/pets/:id/edit', to: 'pets#edit'
   patch '/pets/:id', to: 'pets#update'
   delete '/pets/:id', to: 'pets#destroy'
-  get '/pets/:id/apply', to: 'pets#show_applied'
 
   get '/shelters/:shelter_id/pets', to: 'pets#index_shelter'
   get '/shelters/:shelter_id/pets/new', to: 'pets#new'
@@ -37,4 +36,5 @@ Rails.application.routes.draw do
   get '/apply/:id', to: 'apply#show'
   post '/apply', to: 'apply#create'
   patch '/apply', to: 'apply#update_chosen_pets'
+  get '/pets/:id/apply', to: 'apply#show_applied'
 end
