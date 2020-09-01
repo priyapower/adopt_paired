@@ -1,8 +1,11 @@
 class ApplyController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-
   def new
+  end
+
+  def show
+
   end
 
   def create
