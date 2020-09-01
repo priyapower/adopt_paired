@@ -2,7 +2,6 @@ class FavoritesController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    favorites
   end
 
   def update
