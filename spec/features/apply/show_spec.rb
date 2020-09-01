@@ -63,6 +63,7 @@ RSpec.describe "Apply Show Page", type: :feature do
         description: "2.Person from Apply Index Test")
       PetApply.create!({pet: @pet_1, apply: @application_1})
       PetApply.create!({pet: @pet_2, apply: @application_1})
+      PetApply.create!({pet: @pet_2, apply: @application_2})
       PetApply.create!({pet: @pet_3, apply: @application_2})
     end
 
@@ -82,6 +83,22 @@ RSpec.describe "Apply Show Page", type: :feature do
       expect(page).to have_link(@pet_2.name)
 
       expect(page).to_not have_content(@pet_3.name)
+    end
+
+    it "can approve an application for each pet and change status and confirm who it is on hold for" do
+      visit "/apply/#{@application_2.id}"
+
+      within "#application-pet-#{@pet_2.id}" do
+        expect(page).to have_link("Approve Application for this Pet")
+      end
+      within "#application-pet-#{@pet_3.id}" do
+        expect(page).to have_link("Approve Application for this Pet")
+        click_link "Approve Application for this Pet"
+      end
+
+      expect(current_path).to eq("/pet/#{@pet_3.id}")
+      expect(page).to have_content("Status: Pending Apoption")
+      expect(page).to have_content("Pet on Hold: for #{@application_2.name}")
     end
 
   end
