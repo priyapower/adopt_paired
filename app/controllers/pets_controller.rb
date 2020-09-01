@@ -41,7 +41,6 @@ class PetsController < ApplicationController
     if !approved_pet.contents.empty?
       session[:approved_pet] = approved_pet.contents
       @pet.update(status:false)
-      session[:approved_pet_associate_apps] = PetApply.where(pet_id:@pet.id).pluck(:apply_id)
     end
     redirect_to "/pets/#{@pet.id}"
   end

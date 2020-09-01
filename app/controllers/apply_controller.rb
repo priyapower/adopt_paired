@@ -17,14 +17,6 @@ class ApplyController < ApplicationController
   def show
     @application = Apply.find(params[:id])
     @app_pet_ids = PetApply.where(apply_id:@application.id).pluck(:pet_id)
-    if !session[:approved_pet_associate_apps].nil?
-      @app_pet_ids.each do |pet_id|
-        pet = Pet.find(pet_id)
-        array = session[:approved_pet_associate_apps]
-        # [ ], only grab the id that's associated with the pet.status == false
-        # return the new array as @app_pet_ids or unique local for view
-      end
-    end
   end
 
   def create
