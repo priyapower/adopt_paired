@@ -67,7 +67,7 @@ RSpec.describe "Apply Show Page", type: :feature do
     end
 
     it "can have a show page for each unique application" do
-      visit "/applications/#{@application_1.id}"
+      visit "/apply/#{@application_1.id}"
 
       expect(page).to have_content(@application_1.name)
       expect(page).to have_content(@application_1.address)
