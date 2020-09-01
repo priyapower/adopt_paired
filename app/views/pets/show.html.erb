@@ -8,10 +8,12 @@
   <% if @pet.status %>
     <p>Status: Adoptable </p>
   <% else %>
-    <p>Status: Pending Adoption </p>
+    <p>Status: Pending Adoption</p>
+    <p>Pet on Hold: for <%=@application.name%></p>
   <% end %>
   <h4><%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %></h4>
   <h4><%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %></h4>
+  <h4><%= link_to 'View All Applications for This Pet', "/pets/#{@pet.id}/apply", method: :get %></h4>
   <% if favorites.favorited?(@pet.id) %>
     <h4><%= button_to 'Remove From Favorites', "/favorites/#{@pet.id}", method: :delete %></h4>
   <% else %>

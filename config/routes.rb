@@ -31,4 +31,11 @@ Rails.application.routes.draw do
   patch '/favorites/:pet_id', to: 'favorites#update'
   delete '/favorites/:pet_id', to: 'favorites#destroy'
   delete '/favorites', to: 'favorites#remove_all'
+
+  get '/apply/new', to: 'apply#new'
+  get '/apply/:id', to: 'apply#show'
+  post '/apply', to: 'apply#create'
+  patch '/apply', to: 'apply#update_chosen_pets'
+  get '/pets/:id/apply', to: 'apply#index'
+  patch '/apply/pets/:id', to: 'apply#update'
 end
