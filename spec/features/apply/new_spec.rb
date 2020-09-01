@@ -89,10 +89,6 @@ RSpec.describe "Apply new page", type: :feature do
       fill_in :description, with: "I am a User"
 
       click_button "Submit My Application"
-      # THIS IS WHERE WE AT
-      # OUR CREATE NEVER SAVED OUR USER
-      # CURRENT ERROR MESSAGE;
-      # Failure/Error: expect(page).to have_content("Your application has gone through for the pet: #{@pet_4.name}")  Capybara::ElementNotFound: Unable to find xpath "/html"
 
       expect(page).to have_content("Your application has gone through for 1 pet")
 
