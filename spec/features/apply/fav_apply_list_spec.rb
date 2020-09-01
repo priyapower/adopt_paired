@@ -47,43 +47,54 @@ RSpec.describe "Favorites index can see applied for pets", type: :feature do
         shelter_id: "#{@shelter_2.id}",
         description: "This ragdoll mix is a fluffy and friendly addition to your household",
         status: true)
-
-        visit "/pets/#{@pet_1.id}"
-        click_button("Favorite This Pet!")
-
-        visit "/pets/#{@pet_2.id}"
-        click_button("Favorite This Pet!")
-
-        click_link "My Favorites"
-        click_link "Adopt from Favorited Pets!"
-
-        within "#apply-pet-#{@pet_2.id}" do
-          check("Adopt Me!")
-          click_button("Save changes")
-        end
-
-        fill_in :name, with: "UserPErson"
-        fill_in :address, with: "123 Main Street"
-        fill_in :city, with: "Denver"
-        fill_in :state, with: "NY"
-        fill_in :zip, with: 99999
-        fill_in :phone_number, with: "(555)555-5555"
-        fill_in :description, with: "I am a User"
-
-        click_button "Submit My Application"
     end
 
     it "can see pets that have been applied for" do
+      visit "/pets/#{@pet_1.id}"
+      click_button("Favorite This Pet!")
+
+      visit "/pets/#{@pet_2.id}"
+      click_button("Favorite This Pet!")
+
+      visit "/pets/#{@pet_3.id}"
+      click_button("Favorite This Pet!")
+
+      click_link "My Favorites"
+      click_link "Adopt from Favorited Pets!"
+
+      within "#apply-pet-#{@pet_1.id}" do
+        check("Adopt Me!")
+        click_button("Save changes")
+      end
+
+      within "#apply-pet-#{@pet_2.id}" do
+        check("Adopt Me!")
+        click_button("Save changes")
+      end
+
+      fill_in :name, with: "Second Person"
+      fill_in :address, with: "96 There St"
+      fill_in :city, with: "CityPlace"
+      fill_in :state, with: "StateLocation"
+      fill_in :zip, with: 88888
+      fill_in :phone_number, with: "(555)555-5555"
+      fill_in :description, with: "Person from Favorites Index Test"
+
+      click_button "Submit My Application"
+
       visit "/favorites"
       within "#applied-for-pets" do
         expect(page).to have_content(@pet_2.name)
         expect(page).to have_link(@pet_2.name)
-        expect(page).to_not have_content(@pet_1.name)
-      end
-
-      within "favorited-pets" do
         expect(page).to have_content(@pet_1.name)
         expect(page).to have_link(@pet_1.name)
+        expect(page).to_not have_content(@pet_3.name)
+      end
+
+      within "#favorited-pets" do
+        expect(page).to have_content(@pet_3.name)
+        expect(page).to have_link(@pet_3.name)
+        expect(page).to_not have_content(@pet_1.name)
         expect(page).to_not have_content(@pet_2.name)
       end
     end
