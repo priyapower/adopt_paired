@@ -68,7 +68,6 @@ RSpec.describe "Apply Show Page", type: :feature do
 
     it "can have a show page for each unique application" do
       visit "/apply/#{@application_1.id}"
-      save_and_open_page
 
       expect(page).to have_content(@application_1.name)
       expect(page).to have_content(@application_1.address)
