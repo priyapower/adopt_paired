@@ -86,7 +86,7 @@ RSpec.describe "Shelters Update/New Warnings", type: :feature do
       click_on 'Create Shelter'
 
       expect(current_path).to eq('/shelters')
-      expect(page).to have_content("Shelter Creation Warning: You are missing the required field: Zip")
+      expect(page).to have_content("Shelter Creation Warning: You are missing 1 field: Zip")
 
       fill_in :city, with: "Denver"
       fill_in :state, with: "CO"
@@ -94,7 +94,7 @@ RSpec.describe "Shelters Update/New Warnings", type: :feature do
       click_on 'Create Shelter'
 
       expect(current_path).to eq('/shelters')
-      expect(page).to have_content("Shelter Creation Warning: You are missing the required fields: Name, Address")
+      expect(page).to have_content("Shelter Creation Warning: You are missing the 2 fields: Name, Address")
     end
 
     it "can warn a user when edit shelter fields are incomplete and specify the field" do
