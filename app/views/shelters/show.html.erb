@@ -23,3 +23,8 @@
 </b>
 <h4><%= link_to "Add Review", "/shelters/#{@shelter.id}/reviews/new" %></h4>
 <%= link_to "All Pets at Shelter", "/shelters/#{@shelter.id}/pets", method: :get %>
+<section id='statistics-shelter'>
+  <ul> Number of Pets at Shelter: <%= @pet_counter %></ul>
+  <ul> Average Rating from Reviews: <%= @average_rating %>/5</ul>
+  <ul> Number of Applications at Shelter: <%= @numb_of_applications %></ul>
+</section>

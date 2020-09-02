@@ -78,7 +78,7 @@ RSpec.describe "Shelters Statistics Visible", type: :feature do
       visit "/shelters/#{@shelter_2.id}"
       within "#statistics-shelter" do
         expect(page).to have_content("Number of Pets at Shelter: 2")
-        expect(page).to have_content("Average Rating from Reviews: 4.5/5")
+        expect(page).to have_content("Average Rating from Reviews: 2.0/5")
         expect(page).to have_content("Number of Applications at Shelter: 1")
       end
     end
