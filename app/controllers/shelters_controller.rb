@@ -18,14 +18,9 @@ class SheltersController < ApplicationController
     if shelter.save
       redirect_to '/shelters'
     else
-      # HOW DO I CALL THE EMPTY PARAMS???
-      # When I look at params, the empty fields come through as blank strings
-      # Can I create a method that would grab those empty fields? Then just add that into my flash notice?
-      # Where do I create the method?
-      # Following logic from other controllers, this might live as it's own method
-      # Setup up a theory to follow with pry
-      quantity = empty_fields.count
-      flash[:shelter_fields_notice] = "Shelter Creation Warning: You are missing #{pluralize(quantity, "field")}: #{empty_fields}"
+      quantity = empty_fields(params).count
+      flash[:shelter_fields_notice] = "Shelter Creation Warning: You are missing #{pluralize(quantity, "field")}: #{empty_fields_convert}"
+      redirect_to request.referer
     end
   end
 
@@ -52,9 +47,29 @@ class SheltersController < ApplicationController
 
   private
 
-  # def empty_fields
-  #
-  # end
+  def empty_fields(current_params)
+    @shelter_empty_fields = []
+    current_params.each do |key, value|
+      if value == ""
+        @shelter_empty_fields << key.capitalize
+      end
+    end
+    @shelter_empty_fields
+    # This looks like a RUBY .reduce opportunity for creating that new array
+  end
+
+  def empty_fields_convert
+    empty_fields_string = String.new
+    if @shelter_empty_fields.count == 1
+      empty_fields_string = @shelter_empty_fields.join
+    else
+      @shelter_empty_fields.each do |field|
+        empty_fields_string += field + ", "
+      end
+      empty_fields_string = empty_fields_string[0..-3]
+    end
+    empty_fields_string
+  end
 
   def shelter_params
     params.permit(:name, :address, :city, :state, :zip)
