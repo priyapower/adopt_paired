@@ -47,8 +47,14 @@ class PetsController < ApplicationController
 
   def destroy
     @pet = Pet.find(params[:id])
-    @pet.destroy
-    redirect_to "/pets"
+    if !@pet.status
+      flash[:pet_delete_notice] = "Unable to Delete a Pet with an approved application"
+      redirect_to request.referer
+    else
+      favorites.contents.delete(@pet.id)
+      @pet.destroy
+      redirect_to "/pets"
+    end
   end
 
   def destroy_from_shelter
