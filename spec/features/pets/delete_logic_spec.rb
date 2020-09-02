@@ -87,5 +87,16 @@ RSpec.describe "Pet deletion logic", type: :feature do
       expect(page).to have_content("Unable to Delete a Pet with an approved application")
     end
 
+    it "it can delete a pet and it's associated favorited" do
+      visit "pets/#{@pet_4.id}"
+
+      click_button("Favorite This Pet!")
+      expect(page).to have_link("Delete Pet")
+      click_link "Delete Pet"
+      expect(current_path).to eq("/pets")
+      within"nav#nav-bar" do
+        expect(page).to have_link("My Favorites(0)")
+      end
+    end
   end
 end
