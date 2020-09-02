@@ -8,7 +8,16 @@ class SheltersController < ApplicationController
   def show
     @shelter = Shelter.find(params[:id])
     @reviews = @shelter.reviews
+    @pet_counter = @shelter.pets.count
+    @average_rating = @reviews.average(:rating)
+    @shelter_applications = Array.new
+    @shelter.pets.each do |pet|
+      @shelter_applications << PetApply.where(pet_id: pet.id).pluck(:apply_id)
+    end
+    @shelter_applications.flatten!
+    @numb_of_applications = @shelter_applications.count
   end
+
 
   def new
   end
