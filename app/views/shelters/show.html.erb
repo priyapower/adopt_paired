@@ -1,30 +1,55 @@
 <h2><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}", method: :get %></h2>
-<p>Address: <%= @shelter.address %></p>
-<p>City: <%= @shelter.city %></p>
-<p>State: <%= @shelter.state %></p>
-<p>Zip: <%= @shelter.zip %></p>
-<h3>Reviews for <%= @shelter.name %></h3>
-<% @shelter.reviews.each do |review| %>
-  <section id='review-<%= review.id %>'>
-    <ul> Title:<%= review.title %></ul>
-    <ul> Rating:<%= review.rating %></ul>
-    <ul> Content:<%= review.content %></ul>
-   <% if !review.image.empty? %>
-    <%= image_tag(review.image) %>
-   <% end %>
- <nav>
-   <ul><%= button_to 'Edit Review', "/reviews/#{review.id}/edit", method: :get %></ul>
-   <ul><%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete %></ul>
- </nav>
-</section>
-<% end %>
-<h4><%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit" %></h4>
-<h4><%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete %></h4></b>
-</b>
-<h4><%= link_to "Add Review", "/shelters/#{@shelter.id}/reviews/new" %></h4>
-<%= link_to "All Pets at Shelter", "/shelters/#{@shelter.id}/pets", method: :get %>
-<section id='statistics-shelter'>
-  <ul> Number of Pets at Shelter: <%= @pet_counter %></ul>
-  <ul> Average Rating from Reviews: <%= @average_rating %>/5</ul>
-  <ul> Number of Applications at Shelter: <%= @numb_of_applications %></ul>
-</section>
+
+<div class="row">
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Shelter information</h5>
+        <p class="card-text">Address: <%= @shelter.address %></p>
+        <p class="card-text">City: <%= @shelter.city %></p>
+        <p class="card-text">State: <%= @shelter.state %></p>
+        <p class="card-text">Zip: <%= @shelter.zip %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Shelter Statistics</h5>
+        <section id='statistics-shelter'>
+          <ul> Number of Pets at Shelter: <%= @pet_counter %></ul>
+          <ul> Average Rating from Reviews: <%= @average_rating %>/5</ul>
+          <ul> Number of Applications at Shelter: <%= @numb_of_applications %></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Reviews for <%= @shelter.name %></h5>
+        <% @shelter.reviews.each do |review| %>
+          <section id='review-<%= review.id %>'>
+            <ul class="card-text"> Title:<%= review.title %></ul>
+            <ul class="card-text"> Rating:<%= review.rating %></ul>
+            <ul class="card-text"> Content:<%= review.content %></ul>
+             <% if !review.image.empty? %>
+              <%= image_tag(review.image) %>
+             <% end %>
+             <%= button_to 'Edit Review', "/reviews/#{review.id}/edit", method: :get, class:"btn btn-primary" %>
+             <%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete, class:"btn btn-primary" %>
+           <% end %>
+         </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<footer class="navbar navbar-dark bg-dark text-center">
+  <h4><%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit" %></h4>
+  <h4><%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete %></h4>
+  <h4><%= link_to "Add Review", "/shelters/#{@shelter.id}/reviews/new" %></h4>
+  <%= link_to "All Pets at Shelter", "/shelters/#{@shelter.id}/pets", method: :get %>
+</footer>
