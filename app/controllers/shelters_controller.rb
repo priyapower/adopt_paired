@@ -17,9 +17,14 @@ class SheltersController < ApplicationController
       redirect_to '/shelters'
     else
       binding.pry
-      flash[:shelter_fields_notice] = "Shelter Creation Warning: You are missing the required #{pluralize("field")}: HOW DO I CALL THE EMPTY PARAMS???"
+      # HOW DO I CALL THE EMPTY PARAMS???
+      # When I look at params, the empty fields come through as blank strings
+      # Can I create a method that would grab those empty fields? Then just add that into my flash notice?
+      # Where do I create the method?
+      # Following logic from other controllers, this might live as it's own method
+      # Setup up a theory to follow with pry
+      flash[:shelter_fields_notice] = "Shelter Creation Warning: You are missing the required #{pluralize("field")}: #{empty_fields}"
     end
-    # Shelter.create(shelter_params)
   end
 
   def edit
@@ -44,6 +49,11 @@ class SheltersController < ApplicationController
   end
 
   private
+
+  # def empty_fields
+  #
+  # end
+
   def shelter_params
     params.permit(:name, :address, :city, :state, :zip)
   end
