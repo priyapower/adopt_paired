@@ -47,6 +47,7 @@ RSpec.describe "Shelters Delete Restrictions", type: :feature do
         shelter_id: "#{@shelter_2.id}",
         description: "This ragdoll mix is a fluffy and friendly addition to your household",
         status: true)
+
       @application_1 = Apply.create!(name: "Third Person",
         address: "96 There St",
         city: "CityPlace",
@@ -61,10 +62,14 @@ RSpec.describe "Shelters Delete Restrictions", type: :feature do
         zip: 88888,
         phone_number: "(555)555-5555",
         description: "2.Person from Apply Index Test")
+
       PetApply.create!({pet: @pet_1, apply: @application_1})
       PetApply.create!({pet: @pet_2, apply: @application_1})
       PetApply.create!({pet: @pet_2, apply: @application_2})
       PetApply.create!({pet: @pet_3, apply: @application_2})
+
+      @review_1 = @shelter_2.reviews.create!(title: 'Amazing', rating: 5, content: 'Found my best friend', image: 'https://live.staticflickr.com/7396/8728178651_912c2fa554_b.jpg')
+      @review_2 = @shelter_2.reviews.create!(title: 'Sucky', rating: 0, content: 'sucks', image: 'https://www.peta.org/wp-content/uploads/2012/05/no-kill-gallery-03.jpg')
     end
 
     it "can prevent shelter deletion when pets have a pending status" do
@@ -99,6 +104,15 @@ RSpec.describe "Shelters Delete Restrictions", type: :feature do
       visit "/pets"
       expect(page).to_not have_content(@pet_1.name)
       expect(page).to_not have_content(@pet_2.name)
+    end
+
+    it "can delete shelters with pets and it deletes shelters & associated reviews" do
+      visit "/shelters/#{@shelter_2.id}"
+      expect(page).to have_content(@review_1.title)
+      expect(page).to have_content(@review_2.title)
+
+      expect(page).to have_link('Delete Shelter')
+      click_link 'Delete Shelter'
     end
 
   end
