@@ -12,8 +12,14 @@ class SheltersController < ApplicationController
   end
 
   def create
-    Shelter.create(shelter_params)
-    redirect_to '/shelters'
+    shelter = Shelter.new(shelter_params)
+    if shelter.save
+      redirect_to '/shelters'
+    else
+      binding.pry
+      flash[:shelter_fields_notice] = "Shelter Creation Warning: You are missing the required #{pluralize("field")}: HOW DO I CALL THE EMPTY PARAMS???"
+    end
+    # Shelter.create(shelter_params)
   end
 
   def edit
