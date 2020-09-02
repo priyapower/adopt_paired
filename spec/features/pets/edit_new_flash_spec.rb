@@ -90,6 +90,21 @@ RSpec.describe "Pet flash message for new and edit field errors", type: :feature
       expect(page).to have_content("Pet Creation Warning: You are missing 2 fields: Name, Approximate age")
     end
 
-    it "can show error messages when a user leaves an empty field for edit pet"
+    it "can show error messages when a user leaves an empty field for edit pet" do
+      visit "/pets/#{@pet_1.id}"
+      click_link("Update Pet")
+      expect(current_path).to eq("/pets/#{@pet_1.id}/edit")
+
+      expect(find_field(:sex).value).to eq "Female"
+      expect(find_field(:description).value).to eq "Adorable chihuahua mix with lots of love to give"
+
+      fill_in :sex, with: ""
+      fill_in :description, with: ""
+
+      click_on "Submit your Edits"
+      expect(current_path).to eq("/pets/#{@pet_1.id}/edit")
+
+      expect(page).to have_content("Pet Edit Warning: You are missing 2 fields: Sex, Description")
+    end
   end
 end

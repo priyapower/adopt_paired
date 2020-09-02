@@ -25,13 +25,12 @@ class PetsController < ApplicationController
 
   def create
     pet = Pet.new(pet_params)
-    if
+    if pet.save
+      redirect_to "/shelters/#{pet.shelter_id}/pets"
+    else
       quantity = empty_fields(params).count
       flash[:pet_fields_notice] = "Pet Creation Warning: You are missing #{pluralize(quantity, "field")}: #{empty_fields_convert}"
       redirect_to request.referer
-    else
-      pet.save
-      redirect_to "/shelters/#{pet.shelter_id}/pets"
     end
   end
 
@@ -42,13 +41,18 @@ class PetsController < ApplicationController
 
   def update
     @pet = Pet.find(params[:id])
-    @pet.update(pet_params)
-    approved_pet
-    if !approved_pet.contents.empty?
-      session[:approved_pet] = approved_pet.contents
-      @pet.update(status:false)
+    if @pet.update(pet_params)
+      approved_pet
+      if !approved_pet.contents.empty?
+        session[:approved_pet] = approved_pet.contents
+        @pet.update(status:false)
+      end
+      redirect_to "/pets/#{@pet.id}"
+    else
+      quantity = empty_fields(params).count
+      flash[:pet_fields_notice] = "Pet Edit Warning: You are missing #{pluralize(quantity, "field")}: #{empty_fields_convert}"
+      redirect_to request.referer
     end
-    redirect_to "/pets/#{@pet.id}"
   end
 
   def destroy
