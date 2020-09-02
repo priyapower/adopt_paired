@@ -83,5 +83,23 @@ RSpec.describe "Shelters Delete Restrictions", type: :feature do
       expect(page).to have_content("This shelter cannot be deleted while pets having pending adoptions")
     end
 
+    it "can delete shelters with pets as long as the pets are status adoptable" do
+      visit "/pets"
+      expect(page).to have_content(@pet_1.name)
+      expect(page).to have_content(@pet_2.name)
+
+      visit "/shelters/#{@shelter_1.id}"
+      expect(page).to have_content(@shelter_1.name)
+      expect(page).to have_link('Delete Shelter')
+      click_link 'Delete Shelter'
+
+      visit "/shelters"
+      expect(page).to_not have_content(@shelter_1.name)
+
+      visit "/pets"
+      expect(page).to_not have_content(@pet_1.name)
+      expect(page).to_not have_content(@pet_2.name)
+    end
+
   end
 end
