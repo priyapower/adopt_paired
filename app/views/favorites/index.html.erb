@@ -1,0 +1,38 @@
+<div class="mx-auto" style="width: 300px;">
+  <h3>My Favorites</h3>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <section id="favorited-pets">
+        <h4>My Favorited Pets</h4>
+        <% if favorites.contents.any? %>
+          <% favorites.contents.each do |pet_id| %>
+          <section id="fav-pets-<%= pet_id %>">
+            <%= pet = Pet.find(pet_id) %>
+            <h2><%= link_to "#{pet.name}", "/pets/#{pet_id}", method: :get %></h2>
+            <%= image_tag(pet.image) %>
+            <p><%= button_to 'Remove From Favorites', "/favorites/#{pet.id}", method: :delete %></p>
+          </section>
+          <% end %>
+        <% else %>
+          <p>You currently don't have any pets in your favorites</p>
+        <% end %>
+      </section>
+    </div>
+    <div class="col">
+      <section id="applied-for-pets">
+        <h4>Pet's I Have Applied For</h4>
+        <% applied_pets.each do |pet_id| %>
+          <%= pet = Pet.find(pet_id) %>
+          <h2><%= link_to "#{pet.name}", "/pets/#{pet_id}", method: :get %></h2>
+          <%= image_tag(pet.image) %>
+        <% end %>
+      </section>
+    </div>
+  </div>
+</div>
+<div class="mx-auto" style="width: 300px;">
+  <%= button_to 'Remove All Favorites', "/favorites", method: :delete %>
+  <%= link_to "Adopt from Favorited Pets!", "/apply/new", method: :get %>
+</div>

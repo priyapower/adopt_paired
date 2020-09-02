@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AdoptSolo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> 
+    <title>AdoptPaired</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
   <body>
+      <header class="card text-center">
+        <div class="card-header">
+          Welcome!
+        </div>
+        <div class="card-body">
+          <h1 class="card-title">Adopt Dont Shop</h1>
+        </div>
+        <div class="card-footer text-muted">
+          A Denver based Pet Adoption Website
+        </div>
+      </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/shelters">All Shelters</a>
+          <a class="nav-link" href="/favorites">My Favorites(<%= favorites.count%>)</a>
+          <a class="nav-link" href="/pets">All Pets</a>
+        </div>
+      </div>
+    </nav>
+
+      <% flash.each do |type, message| %>
+      <div class="alert alert-danger" role="alert">
+      <section class=<%= type %>>
+        <p><%= message %></p>
+      </section>
+      </div>
+      <% end %>
     <%= yield %>
+
   </body>
 </html>

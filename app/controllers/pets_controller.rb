@@ -1,7 +1,8 @@
 class PetsController < ApplicationController
+  include ActionView::Helpers::TextHelper
+
   def index
     @pets = Pet.all
-    # @shelter = Shelter.find(params[:shelter_id])
   end
 
   def index_shelter
@@ -11,6 +12,10 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    app_id = PetApply.where(pet_id:@pet.id).pluck(:apply_id)
+    if !@pet.status && !app_id.empty?
+      @application = Apply.find(app_id.first)
+    end
   end
 
   def new
@@ -19,8 +24,14 @@ class PetsController < ApplicationController
   end
 
   def create
-    pet = Pet.create!(pet_params)
-    redirect_to "/shelters/#{pet.shelter_id}/pets"
+    pet = Pet.new(pet_params)
+    if pet.save
+      redirect_to "/shelters/#{pet.shelter_id}/pets"
+    else
+      quantity = empty_fields(params).count
+      flash[:pet_fields_notice] = "Pet Creation Warning: You are missing #{pluralize(quantity, "field")}: #{empty_fields_convert}"
+      redirect_to request.referer
+    end
   end
 
   def edit
@@ -30,20 +41,30 @@ class PetsController < ApplicationController
 
   def update
     @pet = Pet.find(params[:id])
-    @pet.update(pet_params)
-    redirect_to "/pets/#{@pet.id}"
+    if @pet.update(pet_params)
+      approved_pet
+      if !approved_pet.contents.empty?
+        session[:approved_pet] = approved_pet.contents
+        @pet.update(status:false)
+      end
+      redirect_to "/pets/#{@pet.id}"
+    else
+      quantity = empty_fields(params).count
+      flash[:pet_fields_notice] = "Pet Edit Warning: You are missing #{pluralize(quantity, "field")}: #{empty_fields_convert}"
+      redirect_to request.referer
+    end
   end
 
   def destroy
     @pet = Pet.find(params[:id])
-    @pet.destroy
-    # IF STATEMENT
-    #  if coming from index.html.erb
-        redirect_to "/pets"
-    # else
-        # redirect_to "/shelters/#{@shelter.id}/pets"
-    # end
-
+    if !@pet.status
+      flash[:pet_delete_notice] = "Unable to Delete a Pet with an approved application"
+      redirect_to request.referer
+    else
+      favorites.contents.delete(@pet.id)
+      @pet.destroy
+      redirect_to "/pets"
+    end
   end
 
   def destroy_from_shelter
@@ -54,9 +75,27 @@ class PetsController < ApplicationController
   end
 
   private
+  def empty_fields(current_params)
+    @pet_empty_fields = []
+    current_params.each do |key, value|
+      if value == ""
+        @pet_empty_fields << key.capitalize
+      end
+    end
+    @pet_empty_fields
+    # This looks like a RUBY .reduce opportunity for creating that new array
+  end
+
+  def empty_fields_convert
+    empty_fields_string = String.new
+    @pet_empty_fields.each do |field|
+      empty_fields_string += field + ", "
+    end
+    empty_fields_string = empty_fields_string[0..-3].gsub("_", " ")
+    empty_fields_string
+  end
+
   def pet_params
     params.permit(:image, :name, :approximate_age, :sex, :description, :shelter_id)
   end
-
-
 end

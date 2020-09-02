@@ -1,0 +1,14 @@
+<h2> Add a review for this shelter: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}", method: :get %></h2>
+
+<%= form_tag("/shelters/#{@shelter.id}/reviews", method: :post) do %>
+  <p>Enter a new review:</p>
+  <%= label_tag "Title: " %>
+  <%= text_field_tag :title %>
+  <%= label_tag "Rating: " %>
+  <%= text_field_tag :rating %>
+  <%= label_tag "Content: " %>
+  <%= text_field_tag :content %>
+  <%= label_tag "Optional Picture: " %>
+  <%= text_field_tag :image %>
+  <%= submit_tag 'Add Review', class: :button %>
+<% end %>

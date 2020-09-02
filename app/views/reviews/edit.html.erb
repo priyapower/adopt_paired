@@ -1,0 +1,14 @@
+<h2> Edit Your Review: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}", method: :get %></h2>
+
+<%= form_tag("/reviews/#{@review.id}", method: :patch) do %>
+  <p>Edit information about your review:</p>
+  <%= label_tag "Title: " %>
+  <%= text_field_tag :title, @review.title%>
+  <%= label_tag "Rating: " %>
+  <%= text_field_tag :rating, @review.rating%>
+  <%= label_tag "Content: " %>
+  <%= text_field_tag :content, @review.content%>
+  <%= label_tag "Image Url: " %>
+  <%= text_field_tag :image, @review.image%>
+  <%= submit_tag 'Submit your Edits', class: :button %>
+<% end %>

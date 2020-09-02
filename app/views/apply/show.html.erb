@@ -1,0 +1,34 @@
+<h3>This application is for the following pet(s):</h3>
+<ul>Approve Application for this Pet"</ul>
+<b>
+<b>
+<b>
+<b>
+<p>Pets <strong>adoptable</strong> for this Application</p>
+  <% @app_pet_ids.each do |pet_id| %>
+    <% pet = Pet.find(pet_id) %>
+    <% if pet.status %>
+    <section id="application-pet-<%=pet.id%>">
+        <ul><%= link_to "#{pet.name}", "/pets/#{pet.id}", method: :get %></ul>
+        <%= form_tag("/pets/#{pet.id}", method: :patch) do %>
+          <%= check_box_tag 'approved_pet[]', pet.id, false, :id => "Approve Application for this Pet" -%>
+        <%= submit_tag %>
+        <% end %>
+    </section>
+    <% end %>
+    <ul><%= link_to "Unapprove this application for pet: #{pet.name}", "/apply/pets/#{pet.id}", method: :patch %></ul>
+  <% end %>
+<b>
+<b>
+<b>
+<b>
+<b>
+  <section id="application-info">
+    <ul> Name: <%= @application.name %></ul>
+    <ul> Address: <%= @application.address %></ul>
+    <ul> City: <%= @application.city %></ul>
+    <ul> State: <%= @application.state %></ul>
+    <ul> Zip: <%= @application.zip %></ul>
+    <ul> Phone Number: <%= @application.phone_number %></ul>
+    <ul> Description: <%= @application.description %></ul>
+  </section>

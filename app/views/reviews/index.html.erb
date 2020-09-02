@@ -1,0 +1,7 @@
+<h2>Reviews for <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}", method: :get %></h2></b>
+<% @shelter.reviews.each do |review| %>
+ <ul> Title:<%= review.title %></ul>
+ <ul> Rating:<%= review.rating %></ul>
+ <ul> Content:<%= review.content %></ul>
+ <%= image_tag(review.image) %>
+<% end %>

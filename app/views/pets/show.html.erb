@@ -1,16 +1,23 @@
-<h1>Adopt Don't Shop</h1></b>
-<h2>Meet <%= link_to "#{@pet.name}", "/pets/#{@pet.id}", method: :get %></h2></b>
-<%= link_to "All Pets", "/pets", method: :get %>
-<%= link_to "All Shelters", "/shelters", method: :get %>
-<%= image_tag(@pet.image) %>
-<p>LOCATED AT: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter_id}", method: :get %></p>
-<p>Approximate age: <%= @pet.approximate_age %></p>
-<p>Gender: <%= @pet.sex %></p>
-<p>Description: <%= @pet.description %></p>
-<% if @pet.status %>
-  <p>Status: Adoptable </p>
-<% else %>
-  <p>Status: Pending Adoption </p>
-<% end %></b>
-<h4><%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %></h4>
-<h4><%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %></h4>
+<section id="pet-show">
+  <h2>Meet <%= link_to "#{@pet.name}", "/pets/#{@pet.id}", method: :get %></h2></b>
+  <%= image_tag(@pet.image) %>
+  <p>LOCATED AT: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter_id}", method: :get %></p>
+  <p>Approximate age: <%= @pet.approximate_age %></p>
+  <p>Gender: <%= @pet.sex %></p>
+  <p>Description: <%= @pet.description %></p>
+  <% if @pet.status %>
+    <p>Status: Adoptable </p>
+  <% else %>
+    <p>Status: Pending Adoption</p>
+    <p>Pet on Hold: for <%=@application.name%></p>
+  <% end %>
+  <h4><%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %></h4>
+  <h4><%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %></h4>
+  <h4><%= link_to 'View All Applications for This Pet', "/pets/#{@pet.id}/apply", method: :get %></h4>
+  <% if favorites.favorited?(@pet.id) %>
+    <h4><%= button_to 'Remove From Favorites', "/favorites/#{@pet.id}", method: :delete %></h4>
+  <% else %>
+    <h4><%= button_to 'Favorite This Pet!', "/favorites/#{@pet.id}", method: :patch %></h4>
+  <% end %>
+
+</section>

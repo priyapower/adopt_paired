@@ -32,7 +32,7 @@ RSpec.describe "Pets Update Page", type: :feature do
         sex: "Male",
         shelter_id: "#{@shelter_1.id}",
         description: "This pitty mix will melt your heart with his sweet temperament",
-        status: false)
+        status: true)
       @pet_3 = Pet.create!(image: @image_3,
         name: "Ruby",
         approximate_age: 0,
@@ -70,7 +70,6 @@ RSpec.describe "Pets Update Page", type: :feature do
       expect(page).to have_content("8")
       expect(page).to have_content("This ragdoll-mix is a fluffy, friendly, and loyal addition to your household")
 
-      # I think that age should be a float, not integer, let's update Ruby for 0.7 age
       visit "/pets/#{@pet_3.id}"
       expect(page).to have_link('Update Pet')
       click_link 'Update Pet'

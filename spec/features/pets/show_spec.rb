@@ -31,7 +31,7 @@ RSpec.describe "Pets Show page", type: :feature do
         sex: "Male",
         shelter_id: "#{@shelter_1.id}",
         description: "This pitty mix will melt your heart with his sweet temperament",
-        status: false)
+        status: true)
       @pet_3 = Pet.create!(image: image_3,
         name: "Ruby",
         approximate_age: 0,
@@ -48,7 +48,6 @@ RSpec.describe "Pets Show page", type: :feature do
       expect(page).to have_content(@pet_1.approximate_age)
       expect(page).to have_content(@pet_1.sex)
       expect(page).to have_content(@pet_1.description)
-      # expect(page).to have_content(@pet_1.status)
       expect(@pet_1.status).to eq(true)
       expect(page).to have_content(@shelter_1.name)
     end
