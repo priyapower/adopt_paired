@@ -30,8 +30,13 @@ class SheltersController < ApplicationController
 
   def update
     @shelter = Shelter.find(params[:id])
-    @shelter.update(shelter_params)
-    redirect_to "/shelters/#{@shelter.id}"
+    if @shelter.update(shelter_params)
+      redirect_to "/shelters/#{@shelter.id}"
+    else
+      quantity = empty_fields(params).count
+      flash[:shelter_edit_fields_notice] = "Shelter Edit Warning: You are missing #{pluralize(quantity, "field")}: #{empty_fields_convert}"
+      redirect_to request.referer
+    end
   end
 
   def destroy

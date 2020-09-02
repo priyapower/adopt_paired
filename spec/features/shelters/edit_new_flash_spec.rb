@@ -98,10 +98,21 @@ RSpec.describe "Shelters Update/New Warnings", type: :feature do
     end
 
     it "can warn a user when edit shelter fields are incomplete and specify the field" do
+      visit "/shelters/#{@shelter_1.id}"
+      expect(page).to have_link('Update Shelter')
+      click_link 'Update Shelter'
+      expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
 
-      # When I am updating or creating a new shelter
-      # If I try to submit the form with incomplete information
-      # I see a flash message indicating which field(s) I am missing
+      expect(find_field(:address).value).to eq "1 Place St"
+      expect(find_field(:zip).value).to eq "11111"
+
+      fill_in :address, with: ""
+      fill_in :zip, with: ""
+
+      click_on "Submit your Edits"
+      expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
+
+      expect(page).to have_content("Shelter Edit Warning: You are missing 2 fields: Address, Zip")
     end
 
   end
