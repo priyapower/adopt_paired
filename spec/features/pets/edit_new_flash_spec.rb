@@ -87,7 +87,7 @@ RSpec.describe "Pet flash message for new and edit field errors", type: :feature
       fill_in :description, with: "I am a description"
 
       click_button "Add this Pet"
-      expect(page).to have_content("Pet Creation Warning: You are missing 2 fields: Name, Approximate Age")
+      expect(page).to have_content("Pet Creation Warning: You are missing 2 fields: Name, Approximate age")
     end
 
     it "can show error messages when a user leaves an empty field for edit pet"
